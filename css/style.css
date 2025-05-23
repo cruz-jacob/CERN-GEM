@@ -245,12 +245,12 @@ main {
 .page-hero h2::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 60px;
   height: 3px;
-  background: linear-gradient(to right, #00e676, rgba(0, 230, 118, 0.5));
+  background: #00e676;
 }
 
 .page-hero p {
@@ -2299,4 +2299,27 @@ address {
 
 .newsletter-button:active {
   background: linear-gradient(to right, #00c967, #009e4f);
+}
+
+/* Fix cursor styling for checkbox text and additional elements */
+.checkbox-text {
+  cursor: default;
+}
+
+.social-icon,
+.category-button {
+  cursor: pointer;
+}
+
+/* Fix links in footer */
+.footer-col a,
+.footer-bottom-links a,
+.footer-logo-link {
+  cursor: pointer;
+}
+
+/* Override newsletter section borders with solid color */
+.blog-newsletter {
+  border-top: 3px solid #00e676;
+  border-bottom: 3px solid #00e676;
 }
