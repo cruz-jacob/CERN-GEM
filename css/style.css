@@ -1010,15 +1010,16 @@ main .cta-section p {
   box-shadow: 0 0 0 2px rgba(0, 230, 118, 0.2);
 }
 
-/* Disabled state styles */
-.search-input:disabled,
-.newsletter-button:disabled,
-.newsletter-form input[type="email"]:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+/* Interactive state styles */
+.search-input:focus,
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  border-color: #00e676;
+  box-shadow: 0 0 0 2px rgba(0, 230, 118, 0.2);
 }
 
 .search-button {
+  cursor: pointer;
   position: absolute;
   right: 5px;
   top: 50%;
@@ -2277,4 +2278,25 @@ address {
   position: absolute;
   width: 1px;
   white-space: nowrap;
+}
+
+/* Enhanced interactive states for form elements */
+.search-input,
+.newsletter-form input[type="email"] {
+  cursor: text;
+}
+
+.search-button,
+.newsletter-button {
+  cursor: pointer;
+}
+
+.search-button:active,
+.newsletter-button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.newsletter-button:active {
+  background: linear-gradient(to right, #00c967, #009e4f);
 }
