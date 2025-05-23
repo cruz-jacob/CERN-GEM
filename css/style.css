@@ -130,12 +130,12 @@ nav a {
   text-decoration: none;
   color: #f3f4f6;
   font-family: 'Rubik', sans-serif;
-  font-weight: 700;
+  font-weight: 700; /* Will be overridden for desktop */
   font-size: 1rem;
   letter-spacing: 0.5px;
   padding: 0.5rem 0;
   position: relative;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease; /* Changed from color-only to all properties */
 }
 
 nav a:hover, nav a:focus {
@@ -1169,5 +1169,35 @@ footer {
   
   .contact-info h2 {
     margin-top: 0; /* Ensure there's no extra margin */
+  }
+}
+
+/* Desktop navigation styling for sleeker appearance */
+@media (min-width: 768px) {
+  nav ul li a {
+    font-weight: 400; /* Change from 700/bold to 400/normal for sleeker look */
+    letter-spacing: 0.7px; /* Slightly increased letter spacing for elegance */
+    opacity: 0.9; /* Subtle transparency for lighter feel */
+  }
+  
+  /* Add subtle hover effects */
+  nav ul li a:hover {
+    font-weight: 500; /* Slightly bolder on hover only */
+    color: #00e676; /* Keep brand color on hover */
+    opacity: 1; /* Full opacity on hover */
+    transform: translateY(-1px); /* Subtle lift effect */
+  }
+  
+  /* Active page indicator */
+  nav ul li a.active, 
+  nav ul li a[aria-current="page"] {
+    font-weight: 500;
+    color: #00e676;
+    opacity: 1;
+  }
+  
+  /* Adjust spacing between menu items for better visual rhythm */
+  nav ul {
+    gap: 2.5rem; /* Slightly more spacing between items */
   }
 }
