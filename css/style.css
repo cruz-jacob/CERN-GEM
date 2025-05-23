@@ -102,12 +102,13 @@ header {
   height: 40px;
   width: auto;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  /* Removed animation: transition: transform 0.3s ease; */
 }
 
+/* Removed hover animation
 .logo-link:hover .site-logo {
   transform: scale(1.05);
-}
+} */
 
 .site-name {
   font-family: 'Manrope', sans-serif;
@@ -208,7 +209,7 @@ main {
   background-repeat: no-repeat;
   padding: 70px 0;
   text-align: center;
-  border-bottom: 1px solid rgba(0, 230, 118, 0.2);
+  border-bottom: 2px solid #00e676;
   margin-bottom: 50px;
   overflow: hidden;
 }
@@ -1833,16 +1834,36 @@ address {
   /* --- Footer on Tablet --- */
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px; /* Increased gap between footer sections */
     text-align: center;
+    padding-bottom: 50px; /* Add more padding at the bottom of main footer */
   }
   
   .footer-about {
     padding-right: 0;
+    margin-bottom: 35px; /* Add more space below the address section on mobile */
+  }
+  
+  /* Optimize address for mobile */
+  address {
+    margin-top: 12px;
+    margin-bottom: 20px; /* Space after address on mobile */
+    font-size: 0.85em; /* Smaller text size on mobile */
+    opacity: 0.8; /* Slightly more subtle */
   }
   
   .footer-brand {
     justify-content: center;
+  }
+  
+  /* Optimize logo size for mobile */
+  .footer-logo {
+    max-width: 32px; /* Smaller logo on mobile */
+  }
+  
+  /* Optimize site name for mobile */
+  .footer-site-name {
+    font-size: 1.1em; /* Smaller text on mobile */
   }
   
   .footer-logo-link {
@@ -1856,6 +1877,9 @@ address {
   
   .footer-tagline {
     padding-left: 0;
+    margin-top: 15px;  /* More compact spacing below logo */
+    margin-bottom: 15px;  /* More compact spacing above address */
+    font-size: 0.9em;  /* Slightly smaller text on mobile */
   }
   
   .footer-links {
@@ -1877,7 +1901,8 @@ address {
   
   .footer-social {
     grid-column: span 2;
-    margin-top: 20px;
+    margin-top: 20px;  /* Reduced space above social section */
+    /* Removed padding-top and border-top */
   }
   
   .social-icons {
@@ -1937,6 +1962,11 @@ address {
   }
   .hero p {
     font-size: 1.1em;
+  }
+  
+  /* Reduce spacing between header and main content on mobile */
+  .page-hero {
+    padding: 40px 0; /* Reduced from 70px for better mobile spacing */
   }
 
   /* --- Mobile Navigation ("Hamburger Menu") --- */
@@ -2118,23 +2148,35 @@ address {
   
   .footer-col {
     width: 100%;
+    margin-bottom: 20px;  /* Add spacing between footer columns on mobile */
+  }
+  
+  /* Add better spacing for footer social section title on mobile */
+  .footer-social h4 {
+    margin-bottom: 25px;
   }
   
   .social-icons {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;  /* Increased spacing between social icons on mobile */
+    margin-top: 20px;  /* More space above social icons */
+  }
+  
+  /* Add more space below the logo/brand on mobile */
+  .footer-brand {
+    margin-bottom: 25px;  /* Increased from 15px */
   }
   
   .footer-bottom-links {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
-    white-space: nowrap;
   }
   
-  /* Ensure copyright text and links remain on the same line */
+  /* Adjust footer content for better mobile spacing */
   .footer-bottom-content p {
-    white-space: nowrap;
-    margin-right: 5px;
+    text-align: center;
+    margin: 0 0 8px 0;
   }
 
   .contact-intro h2 {
@@ -2180,15 +2222,22 @@ address {
   /* Extra small screen footer adjustments */
   .footer-bottom-content {
     font-size: 0.9em;
-    gap: 8px;
+    gap: 10px;
+    flex-direction: column;  /* Stack items vertically on very small screens */
+    align-items: center;
+    padding: 5px 0;
   }
   
   .footer-bottom-links {
-    gap: 5px;
+    gap: 8px;
+  }
+  
+  .footer-bottom p {
+    margin-bottom: 5px;  /* Add space between copyright and links when stacked */
   }
   
   .separator {
-    margin: 0 2px;
+    margin: 0 4px;
   }
 }
 
@@ -2236,8 +2285,9 @@ address {
 /* Additional hover effect for logo link */
 .logo-link:hover .site-name {
   color: #00e676; /* Same color, no change needed if already this color */
-  text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); /* Subtle glow effect */
-  transform: translateY(-1px); /* Very slight lift */
+  /* Removed animation effects for a more professional look */
+  /* Removed: text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); */
+  /* Removed: transform: translateY(-1px); */
 }
 
 /* Prevent underline on site logo hover */
