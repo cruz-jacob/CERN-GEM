@@ -500,14 +500,9 @@ legend { /* General legend styling for the contact form */
   align-items: center;
 }
 
+/* Remove the dots before all form legends */
 legend::before {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: #00e676;
-  margin-right: 10px;
-  border-radius: 50%;
+  content: none !important;
 }
 
 .form-group { /* Wrapper for label and input */
@@ -557,6 +552,7 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 
+button[type="submit"], 
 button[type="submit"].form-submit-button {
   width: 100%;
   background: linear-gradient(90deg, #00e676, #00b359);
@@ -573,6 +569,7 @@ button[type="submit"].form-submit-button {
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
+button[type="submit"]:hover,
 button[type="submit"].form-submit-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 230, 118, 0.15);
@@ -605,7 +602,6 @@ select:invalid:not(:placeholder-shown) { /* Ensure select validation applies aft
 /* Contact form section styling */
 .contact-form-section {
   padding: 60px 0;
-  text-align: center;
   position: relative;
 }
 
@@ -620,17 +616,71 @@ select:invalid:not(:placeholder-shown) { /* Ensure select validation applies aft
   pointer-events: none;
 }
 
-.contact-form-section h2 {
+/* Contact Container Layout */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 0 auto;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 320px;
+}
+
+.contact-info h2 {
   font-size: 2.8em;
   margin-bottom: 15px;
   color: #ffffff;
 }
 
-.contact-form-section p {
-  max-width: 600px;
-  margin: 0 auto 40px;
+.contact-info p {
+  margin-bottom: 30px;
   color: #c0c0c0;
   font-size: 1.1em;
+}
+
+/* Contact Details Styling */
+.contact-details {
+  margin: 2rem 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.contact-item svg {
+  margin-right: 1rem;
+  min-width: 24px;
+  flex-shrink: 0;
+}
+
+.contact-item p {
+  margin: 0;
+  color: #f0f0f0;
+}
+
+.contact-image-placeholder {
+  margin-top: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+}
+
+.contact-image-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.contact-image-placeholder img:hover {
+  transform: scale(1.02);
 }
 
 .contact-section { /* Main wrapper for the contact page content */
@@ -680,14 +730,16 @@ select:invalid:not(:placeholder-shown) { /* Ensure select validation applies aft
 }
 
 .form-wrapper {
-  max-width: 550px; /* Reduced width for a narrower form */
-  margin: 0 auto; /* Center the form wrapper */
+  flex: 1.5;
+  min-width: 320px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3), 
               0 0 0 1px rgba(0, 230, 118, 0.1),
               0 8px 0 -3px rgba(0, 230, 118, 0.2);
+  background-color: rgba(31, 41, 55, 0.95);
+  border-left: 4px solid #00e676;
 }
 
 
@@ -888,6 +940,24 @@ footer {
   .site-name {
     font-size: 1.4em;
   }
+  
+  /* Contact page responsive */
+  .contact-container {
+    flex-direction: column;
+  }
+  
+  .contact-info, .form-wrapper {
+    width: 100%;
+  }
+  
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+  
+  .form-wrapper {
+    border-left: none;
+    border-top: 4px solid #00e676;
+  }
   .hero h2 {
     font-size: 2.0em; /* Adjusted from 2.2em for better fit */
     line-height: 1.4;
@@ -1038,5 +1108,16 @@ footer {
     font-size: 1.4em; /* Smaller section headings */
     margin-left: 10px;
     margin-right: 10px;
+  }
+}
+
+/* Adjust spacing for contact section on mobile */
+@media (max-width: 767px) {
+  .contact-form-section {
+    padding: 40px 0; /* Reduced from 60px */
+  }
+  
+  .contact-info h2 {
+    margin-top: 0; /* Ensure there's no extra margin */
   }
 }
