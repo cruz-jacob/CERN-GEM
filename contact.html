@@ -76,10 +76,10 @@
         <!-- Right Column - Form -->
         <div class="form-wrapper">
         <form action="#" method="POST"> <fieldset> <legend>Your Information</legend> <div>
-              <label for="name">Full Name:</label> <input type="text" id="name" name="name" required placeholder="e.g., Jane Doe"> </div>
+              <label for="name">Full Name:</label> <input type="text" id="name" name="name" required placeholder="e.g., Jane Doe"> <span class="required-tooltip">Required</span> </div>
 
             <div>
-              <label for="email">Email Address:</label> <input type="email" id="email" name="email" required placeholder="e.g., jane.doe@example.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"> </div>
+              <label for="email">Email Address:</label> <input type="email" id="email" name="email" required placeholder="e.g., jane.doe@example.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"> <span class="required-tooltip">Required</span> </div>
 
             <div>
               <label for="phone">Phone Number (Optional):</label> <input type="tel" id="phone" name="phone" placeholder="e.g., (555) 123-4567"> </div>
@@ -95,6 +95,7 @@
                 <option value="sales">Sales/Partnership</option>
                 <option value="feedback">Feedback</option>
               </select>
+              <span class="required-tooltip">Required</span>
             </div>
 
              <fieldset> <legend>Preferred Contact Method:</legend>
@@ -118,7 +119,7 @@
             </div>
             
             <div>
-              <label for="message">Your Message:</label> <textarea id="message" name="message" rows="6" required placeholder="Please describe your query in detail..."></textarea> </div>
+              <label for="message">Your Message:</label> <textarea id="message" name="message" rows="6" required placeholder="Please describe your query in detail..."></textarea> <span class="required-tooltip">Required</span> </div>
           </fieldset>
           
           <button type="submit" class="form-submit-button">Send Message</button> </form>

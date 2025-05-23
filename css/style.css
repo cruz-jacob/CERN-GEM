@@ -537,19 +537,18 @@ select {
 }
 
 fieldset div { /* For radio/checkbox groups for proper spacing */
+  margin-bottom: 20px; /* Increased from 10px to accommodate tooltips */
+  position: relative;
+}
+
+fieldset div:last-child {
   margin-bottom: 10px;
 }
 
-fieldset div label { /* Specific label styling for radio/checkbox options */
-  font-weight: normal;
-  display: inline;
-  margin-left: 5px;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  margin-right: 8px;
-  vertical-align: middle;
+/* Ensure space below the select elements with tooltips */
+select + .required-tooltip {
+  margin-top: 5px;
+  display: inline-block;
 }
 
 button[type="submit"], 
@@ -596,6 +595,57 @@ input:invalid:not([type="submit"]),
 textarea:invalid,
 select:invalid:not(:placeholder-shown) { /* Ensure select validation applies after interaction */
   border-left: 4px solid #ff3333;
+}
+
+/* Style for required form fields */
+input:required,
+textarea:required,
+select:required {
+  border: 1px solid #e53e3e; /* Red border for required fields */
+  border-left: 4px solid #e53e3e; /* Thicker left border */
+}
+
+/* Style for required fields when focused */
+input:required:focus,
+textarea:required:focus,
+select:required:focus {
+  border-color: #e53e3e;
+  box-shadow: 0 0 10px rgba(229, 62, 62, 0.3);
+  outline: none;
+}
+
+/* Add a required indicator next to the labels */
+label[for="name"]::after,
+label[for="email"]::after,
+label[for="query_type"]::after,
+label[for="message"]::after {
+  content: " *";
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+/* Maintain the valid styling when properly filled */
+input:required:valid,
+textarea:required:valid,
+select:required:valid {
+  border-left: 4px solid #00cc00;
+  border-color: #374151;
+}
+
+input:required:valid:focus,
+textarea:required:valid:focus,
+select:required:valid:focus {
+  border-color: #00e676;
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+}
+
+/* Required field tooltips */
+.required-tooltip {
+  display: block;
+  color: #e53e3e;
+  font-size: 0.8em;
+  margin-top: 5px;
+  font-style: italic;
 }
 
 /* --- Contact Page Specific Styles --- */
