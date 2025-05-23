@@ -64,7 +64,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 img {
@@ -94,7 +94,7 @@ header {
   display: flex;
   align-items: center;
   text-decoration: none;
-  gap: 0.75rem;
+  gap: 1.25rem; /* Increased spacing between logo and text */
   padding-left: 1rem; /* Add padding for desktop */
 }
 
@@ -113,7 +113,7 @@ header {
 .site-name {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  color: #00e676;
+  color: #ffffff;
   font-size: 1.5rem;
   margin: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -128,35 +128,39 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 2.25rem; /* Slightly increased spacing between items */
+  align-items: center; /* Better vertical alignment */
 }
 
 nav a {
   text-decoration: none;
   color: #f3f4f6;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 700; /* Will be overridden for desktop */
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+  font-family: 'Manrope', sans-serif; /* Changed to Manrope for consistency with logo */
+  font-weight: 500; /* Lighter weight for sleeker look */
+  font-size: 0.9rem; /* Slightly smaller size */
+  letter-spacing: 0.7px; /* Increased letter spacing for modern feel */
   padding: 0.5rem 0;
   position: relative;
-  transition: all 0.2s ease; /* Changed from color-only to all properties */
+  text-transform: uppercase; /* Uppercase for more sleek, modern appearance */
+  transition: all 0.2s ease;
 }
 
 nav a:hover, nav a:focus {
   color: #00e676;
+  text-decoration: none;
+  transform: translateY(-1px); /* Subtle lift effect on hover */
 }
 
 /* Modern underline effect */
 nav a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -3px; /* Slightly lower */
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1px; /* Thinner line for sleeker look */
   background-color: #00e676;
-  transition: width 0.3s ease;
+  transition: width 0.3s cubic-bezier(0.58, 0.3, 0.005, 1); /* Smoother animation curve */
 }
 
 nav a:hover::after, nav a:focus::after {
