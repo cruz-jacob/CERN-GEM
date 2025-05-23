@@ -1528,6 +1528,143 @@ main .cta-section p {
   border: 0;
 }
 
+/* ======================= Footer Styles ======================= */
+footer {
+  background: linear-gradient(to bottom, #12181f, #0a0e14);
+  border-top: 1px solid rgba(0, 230, 118, 0.2);
+  padding-top: 60px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-col {
+  position: relative;
+}
+
+.footer-col:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,230,118,0.1), rgba(255,255,255,0.05));
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #00e676;
+}
+
+.footer-logo {
+  max-width: 40px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.footer-site-name {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-tagline {
+  margin: 15px 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00e676;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: rgba(0, 230, 118, 0.2);
+  transform: translateY(-3px);
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: rgba(255, 255, 255, 0.8);
+  transition: fill 0.3s ease;
+}
+
+.social-icon:hover svg {
+  fill: #00e676;
+}
+
+address {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9em;
+  text-align: center;
+}
+
 /* ======================= Responsive Media Queries ======================= */
 
 @media (max-width: 992px) {
@@ -1925,53 +2062,4 @@ main .cta-section p {
   position: absolute;
   width: 1px;
   white-space: nowrap;
-}
-\Final Project CERN\css\style.css
-/* Add to existing media queries section */
-@media (max-width: 767px) {
-  /* ... existing mobile styles ... */
-  
-  /* Blog page responsive styles */
-  .blog-filter-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .blog-search {
-    max-width: 100%;
-  }
-  
-  .blog-categories {
-    margin-top: 10px;
-  }
-  
-  .blog-post-summary {
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  .blog-post-thumbnail {
-    width: 100%;
-    height: auto;
-    max-height: 220px;
-    margin-bottom: 20px;
-  }
-  
-  .newsletter-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-  
-  .newsletter-content h3::before {
-    display: none;
-  }
-  
-  .newsletter-content h3 {
-    padding-left: 0;
-  }
-  
-  .checkmark {
-    top: 3px;
-  }
 }
