@@ -454,21 +454,32 @@ main .cta-section p {
   color: #00e676;
 }
 
-/* Removed general 'form' rule with just padding, as contact form has specific styling */
 /* Specific styles for the contact form, using the class */
-form.contact-form {
-  max-width: 700px; /* This is for the contact form itself */
-  margin: 0; /* Removed margin: 30px auto; as grid controls this */
+form {
   background-color: #1f2937;
   border-radius: 8px;
-  padding: 30px 40px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  padding: 30px 35px;
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  position: relative;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00e676, rgba(0, 230, 118, 0.2));
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 fieldset { /* General fieldset styling for the contact form */
   border: none;
   padding: 0;
-  margin: 0 0 25px 0;
+  margin: 0 0 28px 0;
+  position: relative;
 }
 
 fieldset:last-of-type {
@@ -479,12 +490,24 @@ legend { /* General legend styling for the contact form */
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
   padding: 0;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   color: #00e676;
   font-size: 1.2em;
   width: 100%;
-  border-bottom: 1px solid #374151;
+  border-bottom: 1px solid rgba(55, 65, 81, 0.6);
   padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+legend::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #00e676;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .form-group { /* Wrapper for label and input */
@@ -579,7 +602,37 @@ select:invalid:not(:placeholder-shown) { /* Ensure select validation applies aft
 }
 
 /* --- Contact Page Specific Styles --- */
-/* Removed .contact-form-section, .contact-form-section h2, .contact-form-section p - these are replaced by new structure */
+/* Contact form section styling */
+.contact-form-section {
+  padding: 60px 0;
+  text-align: center;
+  position: relative;
+}
+
+.contact-form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(0, 230, 118, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.contact-form-section h2 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.contact-form-section p {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #c0c0c0;
+  font-size: 1.1em;
+}
+
 .contact-section { /* Main wrapper for the contact page content */
   padding: 80px 0;
 }
@@ -627,8 +680,14 @@ select:invalid:not(:placeholder-shown) { /* Ensure select validation applies aft
 }
 
 .form-wrapper {
-  max-width: 800px; /* Adjust this value to control form width */
+  max-width: 550px; /* Reduced width for a narrower form */
   margin: 0 auto; /* Center the form wrapper */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3), 
+              0 0 0 1px rgba(0, 230, 118, 0.1),
+              0 8px 0 -3px rgba(0, 230, 118, 0.2);
 }
 
 
@@ -943,5 +1002,41 @@ footer {
 
   .contact-intro h2 {
     font-size: 2.2em; /* Further adjust for very small screens */
+  }
+  
+  .form-wrapper {
+    border-radius: 8px; /* Smaller border radius on mobile */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Lighter shadow for small screens */
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+  }
+  
+  form {
+    padding: 25px 20px; /* Less padding on mobile */
+  }
+}
+
+/* Extra small devices - phones below 320px */
+@media (max-width: 320px) {
+  .hero h2 {
+    font-size: 1.8em; /* Reduce from 2.0em */
+    line-height: 1.3;
+  }
+  
+  .hero-subheading {
+    font-size: 0.95em; /* Slightly smaller text */
+  }
+  
+  .cta-button {
+    padding: 10px 16px; /* Slightly smaller padding */
+    font-size: 0.95em; /* Slightly smaller text */
+  }
+  
+  .features-overview h3 {
+    font-size: 1.4em; /* Smaller section headings */
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
