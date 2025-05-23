@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <title>Vigilant Shield Blog - Anti-Cheat News and Insights</title>
   <link rel="stylesheet" href="css/style.css">
@@ -19,7 +19,7 @@
  <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="site-logo">
  <p class="site-name">Vigilant Shield</p></a>
  <input type="checkbox" class="navToggler" id="navToggler">
- <label for="navToggler" class="navTogglerMenu">
+ <label for="navToggler" class="navTogglerMenu" aria-label="Toggle navigation menu">
  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuOpen">
  <line x1="3" y1="12" x2="21" y2="12"></line>
  <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -47,16 +47,40 @@
   <main>
     <section class="page-hero">
       <div class="container">
- <h2>Vigilant Shield Blog</h2>
+        <div class="hero-decorations">
+          <div class="hero-dot hero-dot-1"></div>
+          <div class="hero-dot hero-dot-2"></div>
+          <div class="hero-line hero-line-1"></div>
+          <div class="hero-line hero-line-2"></div>
+        </div>
+        <h2>Vigilant Shield Blog</h2>
         <p>Stay updated with the latest in anti-cheat technology, industry news, and game security insights.</p>
       </div>
     </section>
 
     <section class="blog-listing">
       <div class="container">
+        <div class="blog-filter-container">
+          <div class="blog-search">
+            <input type="text" placeholder="Search articles..." class="search-input" disabled>
+            <span class="search-button" aria-label="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="blog-categories">
+            <span class="category-button active">All</span>
+            <span class="category-button">Anti-Cheat Tech</span>
+            <span class="category-button">Gaming Security</span>
+            <span class="category-button">Community</span>
+          </div>
+        </div>
+
         <article class="blog-post-summary">
           <img src="images/blog-post1-thumb.jpg" alt="Abstract image representing AI in anti-cheat" class="blog-post-thumbnail">
           <div class="blog-post-content">
+            <div class="blog-post-tag">Anti-Cheat Tech</div>
             <h3><a href="blog/post1.html">The Evolving Landscape of Game Cheats in 2024</a></h3>
             <p class="post-meta">Published on <time datetime="2024-05-15">May 15, 2024</time> by The Vigilant Team</p>
             <p>Cheating in online games is a persistent challenge. This year, we've seen increasingly sophisticated methods emerge, from advanced AI-powered aimbots to complex hardware cheats. Understanding these trends is the first step in combating them effectively...</p>
@@ -67,6 +91,7 @@
         <article class="blog-post-summary">
           <img src="images/blog-post2-thumb.jpg" alt="Image of a secure server room" class="blog-post-thumbnail">
           <div class="blog-post-content">
+            <div class="blog-post-tag">Gaming Security</div>
             <h3><a href="blog/post2.html">Why Server-Side Validation is Crucial for Anti-Cheat</a></h3>
             <p class="post-meta">Published on <time datetime="2024-04-28">April 28, 2024</time> by Jane Developer</p>
             <p>While client-side detection plays a role, robust server-side validation remains the backbone of any effective anti-cheat strategy. We dive into the technical reasons why and how Vigilant Shield implements comprehensive server checks...</p>
@@ -77,6 +102,7 @@
         <article class="blog-post-summary">
           <img src="images/blog-post3-thumb.jpg" alt="Community of gamers working together" class="blog-post-thumbnail">
           <div class="blog-post-content">
+            <div class="blog-post-tag">Community</div>
             <h3><a href="blog/post3.html">Building a Fair Play Community: Tips for Developers</a></h3>
             <p class="post-meta">Published on <time datetime="2024-04-10">April 10, 2024</time> by Community Managers</p>
             <p>An effective anti-cheat is only part of the solution. Fostering a community culture that values fair play is equally important. Here are some actionable tips for game developers to encourage positive player behavior...</p>
@@ -84,7 +110,35 @@
           </div>
         </article>
 
+        <div class="blog-pagination">
+          <a href="#" class="pagination-arrow disabled">&laquo;</a>
+          <a href="#" class="pagination-number active">1</a>
+          <a href="#" class="pagination-number">2</a>
+          <a href="#" class="pagination-number">3</a>
+          <a href="#" class="pagination-arrow">&raquo;</a>
         </div>
+      </div>
+    </section>
+    
+    <section class="blog-newsletter">
+      <div class="container">
+        <div class="newsletter-container">
+          <div class="newsletter-content">
+            <h3>Stay Updated on Game Security</h3>
+            <p>Subscribe to our newsletter for the latest anti-cheat news, security tips, and exclusive Vigilant Shield updates.</p>
+          </div>
+          <div class="newsletter-form">
+            <div class="form-group">
+              <label for="newsletter-email" class="visually-hidden">Your email address</label>
+              <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Your email address" disabled>
+              <button type="button" class="newsletter-button" disabled>Subscribe</button>
+            </div>
+            <div class="checkbox-container">
+              <span class="checkbox-text">Subscribe to receive updates (functionality disabled)</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
