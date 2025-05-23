@@ -71,8 +71,8 @@ img {
 
 /* ======================= Header Styles ======================= */
 header {
-  background-color: rgba(16, 24, 39, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, rgba(18, 24, 31, 0.97), rgba(31, 41, 55, 0.97));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 230, 118, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -1037,10 +1037,10 @@ footer {
   header nav ul {
     flex-direction: column;
     width: 100%;
-    padding: 80px 0 0 0; /* Add top padding to avoid overlapping with close button */
+    padding: 90px 0 30px 0; /* Increased padding for better spacing */
     margin: 0;
     align-items: center;
-    gap: 10px;
+    gap: 12px; /* Slightly more space between items */
   }
   
   header nav li {
@@ -1049,18 +1049,36 @@ footer {
     margin: 0;
   }
   
+  header nav li:first-child {
+    margin-top: 10px; /* Space after the header */
+  }
+     
+  header nav li:last-child {
+    margin-bottom: 30px; /* Space at the bottom */
+  }
+  
   header nav a {
     display: block;
     width: 100%;
-    padding: 10px 0 15px 0; /* Combined padding for top and bottom */
-    font-size: 1.2rem;
+    padding: 14px 0; /* Even padding */
+    font-size: 1.1rem; /* Slightly smaller but still readable */
     border-radius: 6px;
-    margin: 5px 0;
+    margin: 4px 0;
+    transition: all 0.2s ease; /* Faster transitions */
+  }
+  
+  /* Active page indicator in mobile menu */
+  header nav a.active,
+  header nav a[aria-current="page"] {
+    background-color: rgba(0, 230, 118, 0.15); /* Subtle background highlight */
+    border-left: 3px solid #00e676; /* Left border indicator */
+    color: #00e676; /* Brand color */
   }
   
   header nav a:hover {
     background-color: rgba(45, 55, 72, 0.7);
     color: #00e676;
+    transform: translateY(-1px); /* Subtle lift effect */
   }
 
   .navTogglerMenu {
@@ -1068,23 +1086,77 @@ footer {
     z-index: 1001; /* Ensure it stays above the nav panel */
   }
   
+  /* Modernize the hamburger icon */
+  .navTogglerMenu svg {
+    stroke-width: 1.75px; /* Slightly thinner lines for a more elegant look */
+    stroke-linecap: round; /* Rounded line ends */
+    transition: all 0.3s ease;
+  }
+   
+  .navTogglerMenu:hover svg {
+    transform: scale(1.1);
+    stroke: #00e676; /* Brand color on hover */
+  }
+  
+  /* Add overlay when menu is open */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 999;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+  }
+
+  .navToggler:checked ~ .menu-overlay {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s forwards;
+  }
+   
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
   .navToggler:checked ~ nav {
     display: block;
     animation: slideIn 0.3s forwards;
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); /* More professional easing */
   }
   
   @keyframes slideIn {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
+    from { 
+      transform: translateX(100%);
+      opacity: 0.8;
+    }
+    to { 
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
   
   .navToggler:not(:checked) ~ nav {
     animation: slideOut 0.3s forwards;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0); /* More professional easing */
   }
   
   @keyframes slideOut {
-    from { transform: translateX(0); }
-    to { transform: translateX(100%); }
+    from { 
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to { 
+      transform: translateX(100%);
+      opacity: 0.8;
+    }
   }
   
   .navTogglerMenu .menuClose { display: none; }
@@ -1210,6 +1282,28 @@ footer {
 }
 
 /* Prevent underline on site logo hover */
-.logo-link:hover {
-  text-decoration: none;
+.logo-link:hover,
+.footer-logo-link:hover {
+  text-decoration: none !important; /* Use important to override any other hover rules */
+}
+
+/* Smooth transitions for hamburger menu icon */
+.navTogglerMenu svg line {
+  transition: all 0.3s ease;
+}
+
+/* Rotate the close icon lines smoothly */
+.navToggler:checked ~ .navTogglerMenu .menuClose line {
+  transition: all 0.3s ease;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 0;
+}
+
+/* Add delay between each line's animation */
+.navToggler:checked ~ .navTogglerMenu .menuClose line:first-child {
+  transition-delay: 0.1s;
+}
+
+.navToggler:checked ~ .navTogglerMenu .menuClose line:last-child {
+  transition-delay: 0.2s;
 }
