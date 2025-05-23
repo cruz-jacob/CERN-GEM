@@ -1201,3 +1201,15 @@ footer {
     gap: 2.5rem; /* Slightly more spacing between items */
   }
 }
+
+/* Additional hover effect for logo link */
+.logo-link:hover .site-name {
+  color: #00e676; /* Same color, no change needed if already this color */
+  text-shadow: 0 0 8px rgba(0, 230, 118, 0.4); /* Subtle glow effect */
+  transform: translateY(-1px); /* Very slight lift */
+}
+
+/* Prevent underline on site logo hover */
+.logo-link:hover {
+  text-decoration: none;
+}
