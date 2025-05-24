@@ -211,7 +211,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 70px 0;
+  padding: 60px 0 65px; /* Adjusted for better balance - reduced top padding */
   text-align: center;
   border-bottom: 2px solid #00e676;
   margin-bottom: 50px;
@@ -642,7 +642,7 @@ main .cta-section p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 0 20px;
+  margin: 50px 0 40px; /* Increased bottom margin from 20px to 40px */
   gap: 8px;
 }
 
@@ -766,7 +766,7 @@ main .cta-section p {
 .blog-newsletter {
   background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(18, 24, 31, 0.95));
   padding: 60px 0;
-  margin-top: 20px;
+  margin-top: 0; /* Removed 20px top margin since we increased pagination's bottom margin */
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0, 230, 118, 0.15);
@@ -1195,7 +1195,7 @@ main .cta-section p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 0 20px;
+  margin: 50px 0 40px; /* Increased bottom margin from 20px to 40px */
   gap: 8px;
 }
 
@@ -1319,7 +1319,7 @@ main .cta-section p {
 .blog-newsletter {
   background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(18, 24, 31, 0.95));
   padding: 60px 0;
-  margin-top: 20px;
+  margin-top: 0; /* Removed 20px top margin since we increased pagination's bottom margin */
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0, 230, 118, 0.15);
@@ -1748,7 +1748,7 @@ main .cta-section p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 0 20px;
+  margin: 50px 0 40px; /* Increased bottom margin from 20px to 40px */
   gap: 8px;
 }
 
@@ -1872,7 +1872,7 @@ main .cta-section p {
 .blog-newsletter {
   background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(18, 24, 31, 0.95));
   padding: 60px 0;
-  margin-top: 20px;
+  margin-top: 0; /* Removed 20px top margin since we increased pagination's bottom margin */
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(0, 230, 118, 0.15);
@@ -2531,7 +2531,13 @@ address {
   
   /* Reduce spacing between header and main content on mobile */
   .page-hero {
-    padding: 40px 0; /* Reduced from 70px for better mobile spacing */
+    padding: 35px 0 40px; /* Adjusted for better balance on mobile - slightly less top padding */
+    margin-bottom: 40px; /* Reduced bottom margin for mobile */
+  }
+  
+  /* Better mobile pagination spacing */
+  .blog-pagination {
+    margin: 40px 0 30px; /* Adjusted for mobile - slightly reduced margins but maintained proportions */
   }
   
   /* Newsletter section mobile improvements */
