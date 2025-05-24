@@ -86,15 +86,13 @@
             <fieldset>
               <legend>Your Information</legend>
               <div>
-                <label for="name">Full Name</label>
+                <label for="name" class="required">Full Name</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                <span class="required-tooltip">Required</span>
               </div>
 
               <div>
-                <label for="email">Email Address</label>
+                <label for="email" class="required">Email Address</label>
                 <input type="email" id="email" name="email" required placeholder="Enter your email address" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
-                <span class="required-tooltip">Required</span>
               </div>
 
               <div>
@@ -111,7 +109,7 @@
             <fieldset>
               <legend>Contact Details</legend>
               <div>
-                <label for="query_type">Reason for Contact</label>
+                <label for="query_type" class="required">Reason for Contact</label>
                 <select id="query_type" name="query_type" required>
                   <option value="">Please select a reason</option>
                   <option value="general">General Inquiry</option>
@@ -119,7 +117,6 @@
                   <option value="sales">Sales/Partnership</option>
                   <option value="feedback">Feedback</option>
                 </select>
-                <span class="required-tooltip">Required</span>
               </div>
 
               <div>
@@ -167,9 +164,8 @@
               </div>
 
               <div>
-                <label for="message">Your Message</label>
+                <label for="message" class="required">Your Message</label>
                 <textarea id="message" name="message" rows="6" required placeholder="Please describe your needs or questions in detail..."></textarea>
-                <span class="required-tooltip">Required</span>
               </div>
             </fieldset>
             
