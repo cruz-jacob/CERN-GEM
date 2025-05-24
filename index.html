@@ -1,37 +1,64 @@
 <!doctype html>
+<!-- 
+=================================================
+Vigilant Shield Anti-Cheat Website
+Author: [Your Name]
+Last Updated: May 23, 2025
+=================================================
+-->
 <html lang="en">
+<!-- Head Section: Contains meta data, title, and CSS links -->
 <head>
+  <!-- Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Font Imports -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Imports -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <title>Vigilant Shield - Modern Anti-Cheat Solution</title>
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Page Title -->
+  <title>Vigilant Shield - Modern Anti-Cheat Solution</title>
 </head>
+<!-- Body contains all visible content -->
 <body> 
-  <!-- Header Section -->
-
+  <!-- 
+  ====================================================
+  Header Section: Contains logo, navigation menu and toggle button for mobile
+  ==================================================== 
+  -->
   <header>
     <div class="container header-container">
- <a href="index.html" class="logo-link">
- <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="site-logo">
- <p class="site-name">Vigilant Shield</p></a>
- <input type="checkbox" class="navToggler" id="navToggler">
- <label for="navToggler" class="navTogglerMenu" aria-label="Toggle navigation menu">
- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuOpen">
- <line x1="3" y1="12" x2="21" y2="12"></line>
- <line x1="3" y1="6" x2="21" y2="6"></line>
- <line x1="3" y1="18" x2="21" y2="18"></line>
- </svg>
- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuClose">
- <line x1="18" y1="6" x2="6" y2="18" stroke="#00e676"></line>
- <line x1="6" y1="6" x2="18" y2="18" stroke="#00e676"></line>
- </svg>
- </label>
- <nav>
- <ul>
+      <!-- Logo and Site Name -->
+      <a href="index.html" class="logo-link">
+        <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="site-logo">
+        <p class="site-name">Vigilant Shield</p>
+      </a>
+      
+      <!-- Mobile Menu Toggle -->
+      <input type="checkbox" class="navToggler" id="navToggler">
+      <label for="navToggler" class="navTogglerMenu" aria-label="Toggle navigation menu">
+        <!-- Hamburger Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuOpen">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <!-- Close Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuClose">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="#00e676"></line>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="#00e676"></line>
+        </svg>
+      </label>
+      
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -39,42 +66,61 @@
           <li><a href="support.html">Support</a></li>
         </ul>
       </nav>
- </div>
- </header>
+    </div>
+  </header>
 
-  <!-- Main Content -->
-
+  <!-- 
+  ====================================================
+  Main Content: Contains all main page sections 
+  ==================================================== 
+  -->
   <main> 
+    <!-- Hero Section: Primary call to action area -->
     <section class="hero">
       <div class="container">
         <h1>STOP CHEATERS 
           <br>IN THEIR TRACKS
         </h1>
         <p class="hero-subheading">Vigilant Shield offers cutting-edge anti-cheat technology to ensure fair play and protect your gaming community.</p>
-        <a href="blog.html" class="cta-button">Discover Our Blog</a> </div>
+        <a href="blog.html" class="cta-button">Discover Our Blog</a> 
+      </div>
     </section>
 
-    <section class="features-overview"> <div class="container">
+    <!-- Features Overview Section: Highlights key product benefits -->
+    <section class="features-overview"> 
+      <div class="container">
         <h2>Why Choose Vigilant Shield?</h2>
         <div class="features-grid">
+          <!-- Feature 1: Real-Time Detection -->
           <article class="feature-item">
-            <img src="images/detection_img.jpg" alt="Real-time detection icon" class="feature-icon"> <h4>Real-Time Detection</h4>
+            <img src="images/detection_img.jpg" alt="Real-time detection icon" class="feature-icon"> 
+            <h4>Real-Time Detection</h4>
             <p>Instantly identify and neutralize threats with our advanced algorithms.</p>
           </article>
+          
+          <!-- Feature 2: AI-Powered Analysis -->
           <article class="feature-item">
-            <img src="images/AI_img.jpg" alt="AI powered analysis icon" class="feature-icon"> <h4>AI-Powered Analysis</h4>
+            <img src="images/AI_img.jpg" alt="AI powered analysis icon" class="feature-icon"> 
+            <h4>AI-Powered Analysis</h4>
             <p>Leverage machine learning to adapt to new and evolving cheat methods.</p>
           </article>
+          
+          <!-- Feature 3: Seamless Integration -->
           <article class="feature-item">
-            <img src="images/intergration_img.jpg" alt="Seamless integration icon" class="feature-icon"> <h4>Seamless Integration</h4>
+            <img src="images/intergration_img.jpg" alt="Seamless integration icon" class="feature-icon"> 
+            <h4>Seamless Integration</h4>
             <p>Easily integrate Vigilant Shield with your game servers and clients.</p>
           </article>
         </div>
       </div>
     </section>
+    
+    <!-- Protected Games Section: Visual showcase of supported games -->
     <div class="protected-games-section">
       <img src="images/protected game.png" alt="Protected Games">
     </div>
+    
+    <!-- Call-to-Action Section: Secondary conversion point -->
     <section class="cta-section">
       <div class="container">
         <h3>Ready to Secure Your Game?</h3>
@@ -82,12 +128,17 @@
         <a href="contact.html" class="cta-button secondary">Get Started</a>
       </div>
     </section>
-    </main>
+  </main>
 
-  <!-- Footer Section -->
-
+  <!-- 
+  ====================================================
+  Footer Section: Contains company info, navigation links, and legal info
+  ==================================================== 
+  -->
   <footer>
+    <!-- Main Footer Content -->
     <div class="container footer-main">
+      <!-- Company Information -->
       <div class="footer-about">
         <a href="index.html" class="footer-logo-link">
           <div class="footer-brand">
@@ -96,13 +147,16 @@
           </div>
         </a>
         <p class="footer-tagline">Cutting-edge anti-cheat technology to ensure fair play and protect your gaming community.</p>
+        <!-- Company Address -->
         <address>
           123 Innovation Drive<br>
           Tech City, USA
         </address>
       </div>
 
+      <!-- Footer Navigation Links -->
       <div class="footer-links">
+        <!-- Primary Navigation -->
         <div class="footer-col">
           <h4>Navigate</h4>
           <ul>
@@ -111,6 +165,7 @@
             <li><a href="blog.html">Blog</a></li>
           </ul>
         </div>
+        <!-- Support Navigation -->
         <div class="footer-col">
           <h4>Support</h4>
           <ul>
@@ -122,20 +177,27 @@
         </div>
       </div>
 
+      <!-- Social Media Links -->
       <div class="footer-social footer-col">
         <h4>Connect</h4>
         <div class="social-icons">
+          <!-- Facebook Icon -->
           <a href="#" aria-label="Facebook" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+          <!-- X (Twitter) Icon -->
           <a href="#" aria-label="X" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 1200 1227" fill="white"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6904H306.615L611.412 515.685L658.88 583.579L1055.08 1150.31H892.476L569.165 687.828Z"/></svg></a>
+          <!-- YouTube Icon -->
           <a href="#" aria-label="YouTube" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
         </div>
       </div>
     </div>
 
+    <!-- Footer Copyright Section -->
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-bottom-content">
+          <!-- Copyright Information -->
           <p>&copy; <time datetime="2025">2025</time> Vigilant Shield. All rights reserved.</p>
+          <!-- Legal Links -->
           <div class="footer-bottom-links">
             <a href="#">Privacy</a>
             <span class="separator">•</span>
@@ -148,6 +210,7 @@
     </div>
   </footer>
 
+<!-- End of Document -->
 </body>
 </html>
 
