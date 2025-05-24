@@ -1571,12 +1571,13 @@ footer::before {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  gap: 15px; /* Consistent spacing between logo and text */
 }
 
 .footer-logo {
   max-width: 40px;
   height: auto;
-  margin-right: 8px;
+  margin-right: 0; /* Removed margin-right as we're using gap in footer-brand */
   border-radius: 6px;
 }
 
@@ -1860,11 +1861,13 @@ address {
   
   .footer-brand {
     justify-content: center;
+    gap: 12px; /* Slightly reduced gap on tablets */
   }
   
   /* Optimize logo size for mobile */
   .footer-logo {
     max-width: 32px; /* Smaller logo on mobile */
+    margin-right: 0; /* Using gap instead of margin for spacing */
   }
   
   /* Optimize site name for mobile */
@@ -2192,6 +2195,18 @@ address {
   .footer-links {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .footer-brand {
+    gap: 10px; /* Further reduced gap for very small screens */
+  }
+  
+  .footer-logo {
+    max-width: 28px; /* Even smaller logo on very small screens */
+  }
+  
+  .footer-site-name {
+    font-size: 1em; /* Smaller font size for very small screens */
   }
   
   /* Improve horizontal spacing in footer */
