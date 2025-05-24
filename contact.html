@@ -1,37 +1,63 @@
 <!doctype html>
+<!-- 
+=================================================
+Vigilant Shield Anti-Cheat Website - Contact Page
+Author: [Your Name]
+Last Updated: May 23, 2025
+=================================================
+-->
 <html lang="en">
+<!-- Head Section: Contains meta data, title, and CSS links -->
 <head>
+  <!-- Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Font Imports -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Imports -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <title>Contact Us - Vigilant Shield</title>
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Page Title -->
+  <title>Contact Us - Vigilant Shield</title>
 </head>
-<body> 
-  <!-- Header Section -->
-
+<!-- Body contains all visible content -->
+<body>   <!-- 
+  ====================================================
+  Header Section: Contains logo, navigation menu and toggle button for mobile
+  ==================================================== 
+  -->
   <header>
     <div class="container header-container">
- <a href="index.html" class="logo-link">
- <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="site-logo">
- <p class="site-name">Vigilant Shield</p></a>
- <input type="checkbox" class="navToggler" id="navToggler">
- <label for="navToggler" class="navTogglerMenu" aria-label="Toggle navigation menu">
- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuOpen">
- <line x1="3" y1="12" x2="21" y2="12"></line>
- <line x1="3" y1="6" x2="21" y2="6"></line>
- <line x1="3" y1="18" x2="21" y2="18"></line>
- </svg>
- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuClose">
- <line x1="18" y1="6" x2="6" y2="18" stroke="#00e676"></line>
- <line x1="6" y1="6" x2="18" y2="18" stroke="#00e676"></line>
- </svg>
- </label>
- <nav>
- <ul>
+      <!-- Logo and Site Name -->
+      <a href="index.html" class="logo-link">
+        <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="site-logo">
+        <p class="site-name">Vigilant Shield</p>
+      </a>
+      
+      <!-- Mobile Menu Toggle -->
+      <input type="checkbox" class="navToggler" id="navToggler">
+      <label for="navToggler" class="navTogglerMenu" aria-label="Toggle navigation menu">
+        <!-- Hamburger Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuOpen">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <!-- Close Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuClose">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="#00e676"></line>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="#00e676"></line>
+        </svg>
+      </label>
+      
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -41,8 +67,13 @@
       </nav>
     </div>
   </header>
-  
+    <!-- 
+  ====================================================
+  Main Content: Contains contact form and information
+  ==================================================== 
+  -->
   <main>
+    <!-- Contact Form Section: Primary content area with contact details and form -->
     <section class="contact-form-section">
       <div class="container contact-container">
         <!-- Left Column - Contact Info -->
@@ -82,9 +113,9 @@
         
         <!-- Right Column - Form -->
         <div class="form-wrapper">
-          <form action="#" method="POST">
-            <fieldset>
-              <legend>Your Information</legend>
+          <form action="#" method="POST">            <fieldset>
+              <!-- Form section header -->
+              <h3>Your Information</h3>
               <div>
                 <label for="name" class="required">Full Name</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your full name">
@@ -104,10 +135,9 @@
                 <label for="company">Company/Organization</label>
                 <input type="text" id="company" name="company" placeholder="Enter your company name (optional)">
               </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Contact Details</legend>
+            </fieldset>            <fieldset>
+              <!-- Contact details form section -->
+              <h3>Contact Details</h3>
               <div>
                 <label for="query_type" class="required">Reason for Contact</label>
                 <select id="query_type" name="query_type" required>
@@ -117,10 +147,9 @@
                   <option value="sales">Sales/Partnership</option>
                   <option value="feedback">Feedback</option>
                 </select>
-              </div>
-
-              <div>
-                <legend>Preferred Contact Method</legend>
+              </div>              <div>
+                <!-- Improper use of legend outside fieldset - changing to appropriate label -->
+                <h4>Preferred Contact Method</h4>
                 <div>
                   <input type="radio" id="contact_email" name="contact_method" value="email" checked>
                   <label for="contact_email">Email</label>
@@ -129,10 +158,9 @@
                   <input type="radio" id="contact_phone" name="contact_method" value="phone">
                   <label for="contact_phone">Phone</label>
                 </div>
-              </div>
-
-              <div>
-                <legend>Areas of Interest</legend>
+              </div>              <div>
+                <!-- Improper use of legend outside fieldset - changing to appropriate heading -->
+                <h4>Areas of Interest</h4>
                 <div>
                   <input type="checkbox" id="interest_game_dev" name="interests" value="game_dev">
                   <label for="interest_game_dev">Game Development Integration</label>
@@ -175,9 +203,15 @@
       </div>
     </section>
   </main>
-
+  <!-- 
+  ====================================================
+  Footer Section: Contains company info, navigation links, and legal info
+  ==================================================== 
+  -->
   <footer>
+    <!-- Main Footer Content -->
     <div class="container footer-main">
+      <!-- Company Information -->
       <div class="footer-about">
         <a href="index.html" class="footer-logo-link">
           <div class="footer-brand">
@@ -186,13 +220,14 @@
           </div>
         </a>
         <p class="footer-tagline">Cutting-edge anti-cheat technology to ensure fair play and protect your gaming community.</p>
+        <!-- Company Address -->
         <address>
           123 Innovation Drive<br>
           Tech City, USA
         </address>
-      </div>
-
+      </div>      <!-- Footer Navigation Links -->
       <div class="footer-links">
+        <!-- Primary Navigation -->
         <div class="footer-col">
           <h4>Navigate</h4>
           <ul>
@@ -201,6 +236,7 @@
             <li><a href="blog.html">Blog</a></li>
           </ul>
         </div>
+        <!-- Support Navigation -->
         <div class="footer-col">
           <h4>Support</h4>
           <ul>
@@ -210,22 +246,24 @@
             <li><a href="#">Privacy Policy</a></li>
           </ul>
         </div>
-      </div>
-
+      </div>      <!-- Social Media Links -->
       <div class="footer-social footer-col">
         <h4>Connect</h4>
         <div class="social-icons">
+          <!-- Facebook Icon -->
           <a href="#" aria-label="Facebook" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+          <!-- X (Twitter) Icon -->
           <a href="#" aria-label="X" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 1200 1227" fill="white"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6904H306.615L611.412 515.685L658.88 583.579L1055.08 1150.31H892.476L569.165 687.828Z"/></svg></a>
           <a href="#" aria-label="YouTube" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
         </div>
       </div>
-    </div>
-
+    </div>    <!-- Footer Copyright Section -->
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-bottom-content">
+          <!-- Copyright Information -->
           <p>&copy; <time datetime="2025">2025</time> Vigilant Shield. All rights reserved.</p>
+          <!-- Legal Links -->
           <div class="footer-bottom-links">
             <a href="#">Privacy</a>
             <span class="separator">•</span>
@@ -237,5 +275,7 @@
       </div>
     </div>
   </footer>
+
+<!-- End of Document -->
 </body>
 </html>
