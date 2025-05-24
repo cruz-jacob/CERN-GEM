@@ -323,15 +323,18 @@ main {
   background: linear-gradient(to top, #12181f, transparent);
 }
 
-.hero h2 {
+.hero h1 {
   font-size: 3.5rem;
   margin-bottom: 25px;
   line-height: 1.2;
   position: relative;
   display: inline-block;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.hero h2::after {
+.hero h1::after {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -341,17 +344,14 @@ main {
   background-color: #00e676;
 }
 
-.hero p {
+.hero-subheading {
   font-size: 1.5em;
   margin-bottom: 30px;
   color: #ffffff;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.hero .hero-subheading {
-  font-weight: bold; /* Rubik bold for emphasis */
+  font-weight: bold;
 }
 
 .cta-button {
@@ -2305,6 +2305,36 @@ address {
     border-left: none;
     border-top: 4px solid #00e676;
   }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+.hero h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: #00e676;
+}
+
+.hero-subheading {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: #ffffff;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
   .hero h2 {
     font-size: 2.0em; /* Adjusted from 2.2em for better fit */
     line-height: 1.4;
@@ -2460,7 +2490,7 @@ address {
     background-color: rgba(0, 0, 0, 0.5);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-    animation: fadeIn 0.3s forwards;
+    animation: fadeIn  0.3s forwards;
   }
    
   @keyframes fadeIn {
