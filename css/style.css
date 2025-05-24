@@ -2239,3 +2239,74 @@ address {
     padding: 25px;
   }
 }
+
+/* Support Page Hero Section Styles */
+.support-hero {
+  position: relative;
+  background: url('../images/support-hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 100px 0;
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate; /* Enable blend modes */
+}
+
+.support-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 24, 31, 0.7),
+    rgba(31, 41, 55, 0.8)
+  );
+  mix-blend-mode: overlay; /* Blend mode for a "techy" effect */
+  pointer-events: none;
+}
+
+.support-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 230, 118, 0.2),
+    transparent 70%
+  );
+  animation: pulse 6s infinite alternate; /* Subtle pulsing effect */
+  pointer-events: none;
+}
+
+/* Keyframe animation for pulsing effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Optional: Add animated particles */
+.support-hero .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Add particles using JavaScript or an external library */
