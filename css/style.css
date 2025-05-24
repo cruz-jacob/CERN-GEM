@@ -308,8 +308,8 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   border-bottom: 1px solid #374151;
-  padding: 120px 0 140px;
-  min-height: 600px;
+  padding: 90px 0 100px; /* Optimized padding for better rhythm */
+  min-height: 520px; /* Reduced min-height for better proportions */
   overflow: hidden;
 }
 
@@ -390,13 +390,28 @@ main {
 }
 
 .features-overview {
-  padding: 60px 0;
+  padding: 70px 0 50px; /* Reduced padding for better visual flow */
   text-align: center;
 }
 
-.features-overview h3 {
-  font-size: 2.2em;
+.features-overview h2 {
+  font-size: 2.8em;
   margin-bottom: 40px;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.features-overview h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #00e676, rgba(0, 230, 118, 0.3));
+  border-radius: 2px;
 }
 
 .features-grid {
@@ -442,10 +457,11 @@ main {
 
 .protected-games-section {
   position: relative;
-  padding: 70px 0;
+  padding: 50px 0 60px; /* Adjusted padding distribution */
   background-color: #12181f;
   text-align: center;
   overflow: hidden;
+  margin-top: 0; /* Removed negative margin to prevent layout issues */
 }
 
 .protected-games-section::before {
@@ -474,10 +490,11 @@ main {
 
 .cta-section { /* This is for the homepage CTA */
   background: linear-gradient(135deg, #1f2937, #12181f);
-  padding: 80px 0;
+  padding: 60px 0; /* Further optimized padding */
   text-align: center;
   position: relative;
   overflow: hidden;
+  margin-top: 0; /* Removed negative margin to prevent layout issues */
 }
 
 .cta-section::before {
@@ -2161,6 +2178,24 @@ address {
 /* ======================= Responsive Media Queries ======================= */
 
 @media (max-width: 992px) {
+  /* Optimize content spacing for tablets */
+  .hero {
+    padding: 80px 0 90px;
+    min-height: 500px;
+  }
+  
+  .features-overview {
+    padding: 60px 0 45px;
+  }
+  
+  .protected-games-section {
+    padding: 45px 0 55px;
+  }
+  
+  .cta-section {
+    padding: 55px 0;
+  }
+
   /* Stack the contact form grid on tablets and below */
   .contact-grid {
     grid-template-columns: 1fr;
@@ -2275,6 +2310,28 @@ address {
   }
   p {
     line-height: 1.7; /* Mobile readability */
+  }
+  
+  /* Optimized mobile content spacing */
+  .hero {
+    padding: 70px 0 80px;
+    min-height: 480px;
+  }
+  
+  .features-overview {
+    padding: 50px 0 40px;
+  }
+  
+  .protected-games-section {
+    padding: 40px 0 50px;
+  }
+  
+  .cta-section {
+    padding: 50px 0;
+  }
+  
+  .features-grid {
+    gap: 25px; /* Reduced gap for mobile */
   }
 
   .header-container {
