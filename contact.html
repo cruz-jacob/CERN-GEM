@@ -47,8 +47,8 @@
       <div class="container contact-container">
         <!-- Left Column - Contact Info -->
         <div class="contact-info">
-          <h2>Get in Touch</h2>
-          <p>We're here to answer any questions you may have. Reach out to us and we'll respond as soon as we can.</p>
+          <h1>Get in Touch</h1>
+          <h2>We're here to help with any questions about our anti-cheat solutions. Our team will respond as soon as possible.</h2>
           
           <div class="contact-details">
             <div class="contact-item">
@@ -66,6 +66,13 @@
               </svg>
               <p>123 Innovation Drive<br>Tech City, USA</p>
             </div>
+            
+            <div class="contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81 .7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <p>Call our Support:<br>(555) 123-4567</p>
+            </div>
           </div>
           
           <div class="contact-image-placeholder">
@@ -75,54 +82,99 @@
         
         <!-- Right Column - Form -->
         <div class="form-wrapper">
-        <form action="#" method="POST"> <fieldset> <legend>Your Information</legend> <div>
-              <label for="name">Full Name:</label> <input type="text" id="name" name="name" required placeholder="e.g., Jane Doe"> <span class="required-tooltip">Required</span> </div>
+          <form action="#" method="POST">
+            <fieldset>
+              <legend>Your Information</legend>
+              <div>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                <span class="required-tooltip">Required</span>
+              </div>
 
-            <div>
-              <label for="email">Email Address:</label> <input type="email" id="email" name="email" required placeholder="e.g., jane.doe@example.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"> <span class="required-tooltip">Required</span> </div>
+              <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+                <span class="required-tooltip">Required</span>
+              </div>
 
-            <div>
-              <label for="phone">Phone Number (Optional):</label> <input type="tel" id="phone" name="phone" placeholder="e.g., (555) 123-4567"> </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (optional)">
+              </div>
 
-            <div>
-              <label for="company">Company Name (Optional):</label> <input type="text" id="company" name="company" placeholder="e.g., Doe Gaming Studios"> </div>
-          </fieldset>
-
-          <fieldset> <legend>Your Query</legend> <div>
-              <label for="query_type">Reason for Contact:</label> <select id="query_type" name="query_type" required> <option value="">--Please choose an option--</option>
-                <option value="general">General Inquiry</option>
-                <option value="support">Technical Support</option>
-                <option value="sales">Sales/Partnership</option>
-                <option value="feedback">Feedback</option>
-              </select>
-              <span class="required-tooltip">Required</span>
-            </div>
-
-             <fieldset> <legend>Preferred Contact Method:</legend>
-                <div><label><input type="radio" name="contact_method" value="email" checked> Email</label></div>
-                <div><label><input type="radio" name="contact_method" value="phone"> Phone</label></div>
+              <div>
+                <label for="company">Company/Organization</label>
+                <input type="text" id="company" name="company" placeholder="Enter your company name (optional)">
+              </div>
             </fieldset>
 
-            <fieldset> <legend>Interests (Select all that apply):</legend>
-                <div><label><input type="checkbox" name="interests" value="game_dev"> Game Development Integration</label></div>
-                <div><label><input type="checkbox" name="interests" value="esports"> eSports Solutions</label></div>
-                <div><label><input type="checkbox" name="interests" value="community"> Community Protection</label></div>
-            </fieldset>
+            <fieldset>
+              <legend>Contact Details</legend>
+              <div>
+                <label for="query_type">Reason for Contact</label>
+                <select id="query_type" name="query_type" required>
+                  <option value="">Please select a reason</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="support">Technical Support</option>
+                  <option value="sales">Sales/Partnership</option>
+                  <option value="feedback">Feedback</option>
+                </select>
+                <span class="required-tooltip">Required</span>
+              </div>
 
-            <div> <label for="preferred_services">Services Interested In (Hold Ctrl/Cmd to select multiple):</label>
-              <select id="preferred_services" name="preferred_services[]" multiple size="4">
-                <option value="real_time_monitoring">Real-Time Monitoring</option>
-                <option value="ai_analysis">AI-Powered Analysis</option>
-                <option value="reporting_dashboard">Reporting Dashboard</option>
-                <option value="custom_integration">Custom Integration Support</option>
-              </select>
-            </div>
+              <div>
+                <legend>Preferred Contact Method</legend>
+                <div>
+                  <input type="radio" id="contact_email" name="contact_method" value="email" checked>
+                  <label for="contact_email">Email</label>
+                </div>
+                <div>
+                  <input type="radio" id="contact_phone" name="contact_method" value="phone">
+                  <label for="contact_phone">Phone</label>
+                </div>
+              </div>
+
+              <div>
+                <legend>Areas of Interest</legend>
+                <div>
+                  <input type="checkbox" id="interest_game_dev" name="interests" value="game_dev">
+                  <label for="interest_game_dev">Game Development Integration</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="interest_esports" name="interests" value="esports">
+                  <label for="interest_esports">eSports Solutions</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="interest_community" name="interests" value="community">
+                  <label for="interest_community">Community Protection</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="interest_custom" name="interests" value="custom">
+                  <label for="interest_custom">Custom Solutions</label>
+                </div>
+              </div>
+
+              <div>
+                <label for="services">Services of Interest</label>
+                <select id="services" name="services[]" multiple>
+                  <option value="real_time_monitoring">Real-Time Monitoring</option>
+                  <option value="ai_analysis">AI-Powered Analysis</option>
+                  <option value="reporting_dashboard">Reporting Dashboard</option>
+                  <option value="custom_integration">Custom Integration Support</option>
+                  <option value="api_access">API Access</option>
+                  <option value="training">Staff Training</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="6" required placeholder="Please describe your needs or questions in detail..."></textarea>
+                <span class="required-tooltip">Required</span>
+              </div>
+            </fieldset>
             
-            <div>
-              <label for="message">Your Message:</label> <textarea id="message" name="message" rows="6" required placeholder="Please describe your query in detail..."></textarea> <span class="required-tooltip">Required</span> </div>
-          </fieldset>
-          
-          <button type="submit" class="form-submit-button">Send Message</button> </form>
+            <button type="submit" class="form-submit-button">Send Message</button>
+          </form>
         </div>
       </div>
     </section>
