@@ -1,5 +1,6 @@
 /*
 =================================================
+IMORTANT: Don't use anotheer CSS file for this project.
 Vigilant Shield Anti-Cheat Website
 Author: [Your Name]
 Last Updated: May 23, 2025
@@ -1738,23 +1739,37 @@ address {
   .cta-button.secondary {
     padding: 16px 34px;
     margin: 12px 0 35px;
-  }
-  .contact-container {
+  }  .contact-container {
     flex-direction: column;
+    padding: 0;
   }
   .contact-info,
   .form-wrapper {
     max-width: 100%;
+    width: 100%;
   }
   .form-wrapper {
     border-left: none;
     border-top: 4px solid #00e676;
+    padding: 40px 25px;
+  }
+  .container.contact-container {
+    padding: 0 10px;
+    max-width: 800px;
   }
   .contact-info h1 {
     font-size: 2.5em;
   }
   .contact-details {
     margin-top: 30px;
+  }
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"],
+  form select,
+  form textarea {
+    width: 100%;
+    max-width: none;
   }
 
   .footer-main {
@@ -2095,15 +2110,27 @@ address {
   .footer-bottom-content p {
     text-align: center;
     margin: 0 0 8px 0;
+  }  .form-wrapper {
+    padding: 25px 15px;
+    margin: 0 auto;
+    width: 100%;
   }
-  .form-wrapper {
-    padding: 25px 20px;
+  .container.contact-container {
+    padding: 0 10px;
+    width: 100%;
   }
   form fieldset {
     margin-bottom: 20px;
+    padding: 0;
+  }
+  form fieldset div {
+    margin-bottom: 15px;
   }
   .blog-newsletter {
     padding: 35px 0;
+  }
+  .contact-form-section {
+    padding: 30px 0;
   }
   .newsletter-container {
     gap: 25px;
