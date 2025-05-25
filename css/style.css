@@ -2539,57 +2539,60 @@ address {
 }
 
 section.modern-cta .cta-buttons a.cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 20px;
-  font-size: 1.05em;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-  will-change: transform;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  width: 240px;
-  min-height: 50px;
-  box-sizing: border-box;
-  line-height: 1.2;
-  white-space: nowrap;
-  flex-grow: 0;
-  flex-shrink: 0;
-  overflow: hidden;
-  margin-top: 0; 
+  display: inline-flex !important; /* DIAGNOSTIC */
+  align-items: center !important; /* DIAGNOSTIC */
+  justify-content: center !important; /* DIAGNOSTIC */
+  padding: 16px 20px !important; /* DIAGNOSTIC */
+  font-size: 1.05em !important; /* DIAGNOSTIC */
+  font-family: 'Manrope', sans-serif !important; /* DIAGNOSTIC */
+  font-weight: 700 !important; /* DIAGNOSTIC */
+  border-radius: 5px !important; /* DIAGNOSTIC */
+  text-decoration: none !important; /* DIAGNOSTIC */
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important; /* DIAGNOSTIC */
+  will-change: transform !important; /* DIAGNOSTIC */
+  text-transform: uppercase !important; /* DIAGNOSTIC */
+  letter-spacing: 0.5px !important; /* DIAGNOSTIC */
+  width: 240px !important; /* DIAGNOSTIC */
+  min-height: 50px !important; /* DIAGNOSTIC */
+  box-sizing: border-box !important; /* DIAGNOSTIC */
+  line-height: 1.2 !important; /* DIAGNOSTIC */
+  white-space: nowrap !important; /* DIAGNOSTIC */
+  flex-grow: 0 !important; /* DIAGNOSTIC */
+  flex-shrink: 0 !important; /* DIAGNOSTIC */
+  overflow: hidden !important; /* DIAGNOSTIC */
+  margin-top: 0 !important; /* DIAGNOSTIC */
+  margin-left: 0 !important; /* DIAGNOSTIC */
+  margin-right: 0 !important; /* DIAGNOSTIC */
+  margin-bottom: 0 !important; /* DIAGNOSTIC */
 }
 
 section.modern-cta .cta-buttons a.cta-button.primary {
-  background-color: #00e676;
-  color: #12181f;
-  border: 2px solid #00e676;
+  background-color: #00e676 !important; /* DIAGNOSTIC */
+  color: #12181f !important; /* DIAGNOSTIC */
+  border: 2px solid #00e676 !important; /* DIAGNOSTIC */
 }
 
 section.modern-cta .cta-buttons a.cta-button.primary:hover {
-  background-color: #00b359;
-  border-color: #00b359;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2);
-  color: white
+  background-color: #00b359 !important; /* DIAGNOSTIC */
+  border-color: #00b359 !important; /* DIAGNOSTIC */
+  transform: translateY(-3px) !important; /* DIAGNOSTIC */
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2) !important; /* DIAGNOSTIC */
+  color: white !important; /* DIAGNOSTIC - Ensuring hover color is also specific */
 }
 
 section.modern-cta .cta-buttons a.cta-button.secondary {
-  background-color: transparent;
-  color: #ffffff;
-  border: 2px solid #00e676;
-  margin: 0;
+  background-color: transparent !important; /* DIAGNOSTIC */
+  color: #ffffff !important; /* DIAGNOSTIC - Changed to white for better visibility on dark bg if primary styles bleed */
+  border: 2px solid #00e676 !important; /* DIAGNOSTIC */
+  margin: 0 !important; /* DIAGNOSTIC */
 }
 
 section.modern-cta .cta-buttons a.cta-button.secondary:hover {
-  background-color: rgba(0, 230, 118, 0.1);
-  color: #12181f;
-  border-color: #00e676;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1);
+  background-color: rgba(0, 230, 118, 0.1) !important; /* DIAGNOSTIC */
+  color: #12181f !important; /* DIAGNOSTIC - Changed to dark text on light green hover */
+  border-color: #00e676 !important; /* DIAGNOSTIC */
+  transform: translateY(-3px) !important; /* DIAGNOSTIC */
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1) !important; /* DIAGNOSTIC */
 }
 
 @media (max-width: 767px) {
@@ -2609,10 +2612,10 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
     gap: 15px;
   }
   section.modern-cta .cta-buttons a.cta-button { 
-    width: 100%; 
-    max-width: 300px;
-    white-space: normal; 
-    overflow: visible;
+    width: 100% !important; /* DIAGNOSTIC */
+    max-width: 300px !important; /* DIAGNOSTIC */
+    white-space: normal !important; /* DIAGNOSTIC */
+    overflow: visible !important; /* DIAGNOSTIC */
   }
 }
 
@@ -2636,4 +2639,4 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
 }
 ```
 
-This updated CSS file should now have the correct spacing between the "Why Us" and "Team" sectio
+This updated CSS file should now have the correct spacing between the "Why Us" and "Team" sec
