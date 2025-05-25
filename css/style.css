@@ -2308,6 +2308,7 @@ address {
 .purpose-section {
   /* This centers the heading and the paragraph within the section */
   text-align: center;
+  padding-top: 0;
 }
 
 .purpose-section .section-heading {
