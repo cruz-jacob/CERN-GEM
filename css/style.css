@@ -2242,7 +2242,7 @@ address {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  position: relative;
+  /* position: relative; /* This was duplicated */
   padding: 100px 0;
   text-align: center;
   overflow: hidden;
@@ -2281,8 +2281,8 @@ address {
   pointer-events: none;
 }
 
-/* Keyframe animation for pulsing effect */
-@keyframes pulse {
+/* Keyframe animation for pulsing effect - This was duplicated, keeping one */
+/* @keyframes pulse {
   0% {
     transform: scale(1);
     opacity: 0.8;
@@ -2291,7 +2291,7 @@ address {
     transform: scale(1.1);
     opacity: 1;
   }
-}
+} */
 
 /* Optional: Add animated particles */
 .support-hero .particles {
@@ -2343,6 +2343,12 @@ address {
   font-size: 1.8em;
   color: #00e676;
   margin-bottom: 15px;
+}
+
+.why-us-section { /* Added the divider styles here */
+  border-bottom: 1px solid rgba(0, 230, 118, 0.2); 
+  padding-bottom: 60px; 
+  margin-bottom: 60px; 
 }
 
 .why-us-section .section-heading {
@@ -2479,16 +2485,16 @@ address {
   line-height: 1.5;
 }
 /* ======================= Modern CTA Section Styles ======================= */
-
+/* This block was duplicated. I have removed the duplicate and kept this one. */
 .modern-cta {
-  background: linear-gradient(135deg, #1f2937, #12181f); /* Dark gradient background */
+  background: linear-gradient(135deg, #1f2937, #12181f);
   padding: 80px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.modern-cta::before { /* Subtle pattern overlay */
+.modern-cta::before {
   content: '';
   position: absolute;
   top: 0;
@@ -2501,14 +2507,14 @@ address {
 }
 
 .modern-cta .cta-content {
-  position: relative; /* For z-index stacking if needed */
+  position: relative;
   z-index: 1;
 }
 
 .modern-cta .cta-accent-line {
   width: 100px;
   height: 4px;
-  background-color: #00e676; /* Green accent line */
+  background-color: #00e676;
   margin: 0 auto 30px auto;
   border-radius: 2px;
 }
@@ -2532,11 +2538,11 @@ address {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
 /* Styling for buttons within .modern-cta - INCREASED SPECIFICITY */
-section.modern-cta .cta-buttons a.cta-button { /* Increased specificity */
+section.modern-cta .cta-buttons a.cta-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2558,42 +2564,32 @@ section.modern-cta .cta-buttons a.cta-button { /* Increased specificity */
   flex-grow: 0;
   flex-shrink: 0;
   overflow: hidden;
-  /* Ensure these base styles are not overridden by the more general .cta-button */
-  margin-top: 0; /* Reset margin-top from general .cta-button if it was causing issues */
+  margin-top: 0; 
 }
 
-section.modern-cta .cta-buttons a.cta-button.primary { /* Increased specificity */
+section.modern-cta .cta-buttons a.cta-button.primary {
   background-color: #00e676;
   color: #12181f;
   border: 2px solid #00e676;
 }
 
-section.modern-cta .cta-buttons a.cta-button.primary:hover { /* Increased specificity */
+section.modern-cta .cta-buttons a.cta-button.primary:hover {
   background-color: #00b359;
   border-color: #00b359;
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2);
 }
 
-section.modern-cta .cta-buttons a.cta-button.secondary { /* Increased specificity */
+section.modern-cta .cta-buttons a.cta-button.secondary {
   background-color: transparent;
-  color: #ffffff;
+   color:  #12181f;
   border: 2px solid #00e676;
-   /* Reset margin from general .cta-button.secondary if it was causing issues */
   margin: 0;
 }
 
-section.modern-cta .cta-buttons a.cta-button.primary:hover { /* Increased specificity */
+section.modern-cta .cta-buttons a.cta-button.secondary:hover {
   background-color: rgba(0, 230, 118, 0.1);
   color: #ffffff;
-  border-color: #00e676;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1);
-}
-
-section.modern-cta .cta-buttons a.cta-button.secondary:hover { /* Increased specificity */
-  background-color: rgba(0, 230, 118, 0.1);
-  color: #002603;
   border-color: #00e676;
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1);
@@ -2616,8 +2612,7 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover { /* Increased spec
     align-items: center;
     gap: 15px;
   }
-  /* Ensure specificity for mobile overrides as well */
-  section.modern-cta .cta-buttons a.cta-button {
+  section.modern-cta .cta-buttons a.cta-button { /* Ensured specificity here too */
     width: 100%; 
     max-width: 300px;
     white-space: normal; 
@@ -2643,5 +2638,3 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover { /* Increased spec
     gap: 25px;
   }
 }
-```
-This updated code should now correctly center the "Our Purpose" heading and increase its font size as int
