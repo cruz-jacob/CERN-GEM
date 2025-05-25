@@ -507,7 +507,7 @@ main {
 
 .cta-section {
   background: linear-gradient(135deg, #1f2937, #12181f);
-  padding: 60px 0;
+  padding: 50px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2243,7 +2243,7 @@ address {
   background-position: center;
   background-attachment: fixed;
   /* position: relative; /* This was duplicated */
-  padding: 100px 0;
+  padding: 40px 0;
   text-align: center;
   overflow: hidden;
   isolation: isolate; /* Enable blend modes */
