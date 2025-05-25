@@ -1530,12 +1530,16 @@ address {
 }
 
 .footer-social {
-  grid-column: 3;
-  grid-row: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: -2px;
+}
+
+.footer-social h4 {
+  margin-bottom: 12px;
+  width: 100%;
+  text-align: left;
 }
 
 .social-icons {
@@ -2081,80 +2085,9 @@ address {
     padding-right: 15px;
   }
   .footer-social h4 {
-    margin-bottom: 8px;
-  }
-  .social-icons {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 0;
-  }
-
-  .footer-social {
-    align-items: center;
-  }
-
-  .social-icon {
-    display: inline-flex;
-    transform: none;
-    width: 35px;
-    height: 35px;
-  }
-  .footer-bottom-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .footer-bottom {
-    padding: 22px 0 30px;
-  }
-  .footer-bottom-content p {
     text-align: center;
-    margin: 0 0 8px 0;
-  }  .form-wrapper {
-    padding: 25px 15px;
-    margin: 0 auto;
+    margin-bottom: 10px;
     width: 100%;
-  }
-  .container.contact-container {
-    padding: 0 10px;
-    width: 100%;
-  }
-  form fieldset {
-    margin-bottom: 20px;
-    padding: 0;
-  }
-  form fieldset div {
-    margin-bottom: 15px;
-  }
-  .blog-newsletter {
-    padding: 35px 0;
-  }
-  .contact-form-section {
-    padding: 30px 0;
-  }
-  .newsletter-container {
-    gap: 25px;
-  }
-  .newsletter-content h3 {
-    font-size: 1.4rem;
-    padding-left: 15px;
-  }
-  .newsletter-content h3::before {
-    width: 3px;
-  }
-  .newsletter-content p {
-    font-size: 0.95rem;
-    margin-bottom: 0;
-  }
-  .newsletter-form input[type="email"] {
-    padding: 10px 100px 10px 12px;
-  }
-  .newsletter-button {
-    padding: 0 12px;
-    font-size: 0.85rem;
-  }
-  .checkbox-container {
-    font-size: 0.8rem;
   }
 }
 
