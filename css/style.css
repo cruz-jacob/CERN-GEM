@@ -184,7 +184,7 @@ nav a:hover::after, nav a:focus::after {
   position: relative;
   z-index: 1002;
   padding: 10px;
-  margin-right: -10px;
+  margin-right: 0;
   transition: transform 0.3s ease;
 }
 
@@ -1686,6 +1686,15 @@ address {
   to { transform: translateX(100%); opacity: 0.8; }
 }
 
+/* Mobile menu animation classes */
+.menu-visible {
+  animation: slideIn 0.3s forwards cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-hidden {
+  animation: slideOut 0.3s forwards cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 /* ======================= Responsive Media Queries ======================= */
 
 @media (max-width: 992px) {
@@ -1924,10 +1933,8 @@ address {
     padding: 0 15px;
     font-size: 0.9rem;
   }
-
-  /* --- Mobile Navigation ("Hamburger Menu") --- */
-  header nav {
-    display: none;
+  /* --- Mobile Navigation ("Hamburger Menu") --- */  header nav {
+    display: block; /* Changed from 'none' to always be in the DOM flow */
     position: fixed;
     width: 85%;
     right: 0;
@@ -1935,21 +1942,73 @@ address {
     height: 100vh;
     background-color: rgba(31, 41, 55, 0.98);
     -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1001;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateX(100%);
+    transform: translateX(100%); /* Start off-screen */
     overflow-y: auto;
+    visibility: visible; /* Ensure it's visible when transformed */
+    padding-bottom: 50px; /* Add extra padding at bottom to ensure all menu items are accessible */
   }
-
   .navToggler:checked ~ nav {
-    display: block;
-    transform: translateX(0);
+    transform: translateX(0); /* Slide in when toggler is checked */
   }
-
-  .menu-overlay {
+  header nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 80px 0 30px 0; /* Increased top padding */
+    margin: 0;
+    align-items: center;
+    gap: 12px;
+  }
+  header nav li {
+    width: 90%;
+    text-align: center;
+    margin: 0;
+  }
+  header nav a {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    margin: 4px 0;
+    transition: all 0.2s ease;
+  }
+  header nav a:hover,
+  header nav a.active,
+  header nav a[aria-current="page"] {
+    background-color: rgba(0, 230, 118, 0.15);
+    color: #00e676;
+    transform: none; /* Reset transform for mobile nav items */
+  }
+  .navTogglerMenu {
+    display: block;
+    z-index: 1002; /* Ensure it's above the menu */
+  }
+  .navTogglerMenu svg {
+    stroke-width: 1.75px;
+    stroke-linecap: round;
+  }
+  .navTogglerMenu:hover svg {
+    stroke: #00e676;
+  }
+  /* Fixed menu icon visibility */
+  .menuOpen, .menuClose {
+    display: block;
+    transition: all 0.3s ease;
+  }
+  .menuClose {
+    display: none; /* Hide X by default */
+  }
+  .navToggler:checked ~ .navTogglerMenu .menuOpen { 
+    display: none; /* Hide hamburger icon when menu is open */
+  }
+  .navToggler:checked ~ .navTogglerMenu .menuClose { 
+    display: block; /* Show X icon when menu is open */
+  }  .menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -1961,9 +2020,28 @@ address {
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0s 0.3s linear;
     -webkit-backdrop-filter: blur(3px);
-            backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    pointer-events: none; /* Prevent clicks when hidden */
+  }.navToggler:checked ~ .menu-overlay {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+    pointer-events: auto; /* Allow clicks on the overlay when visible */
+  }
+  .navTogglerMenu .menuClose { display: none; }
+  .navToggler:checked ~ .navTogglerMenu .menuOpen { display: none; }
+  .navToggler:checked ~ .navTogglerMenu .menuClose { display: block; }
+  .blog-post-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-post-thumbnail {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
   }
 }
+
 @media (max-width: 480px) {
   .features-grid {
     grid-template-columns: 1fr;
@@ -2184,53 +2262,6 @@ address {
   .contact-support-section {
     padding: 25px;
   }
-}
-
-@media (max-width: 767px) {
-  /* ... other styles in this media query ... */
-
-  .navTogglerMenu {
-    display: block; /* This will make the hamburger icon visible */
-  }
-
-  .navToggler:checked ~ .navTogglerMenu .menuOpen {
-    display: none; /* Hides the hamburger icon when the menu is open */
-  }
-
-  .navToggler:checked ~ .navTogglerMenu .menuClose {
-    display: block; /* Shows the close icon (X) when the menu is open */
-  }
-
-  header nav {
-    /* The display: none; is already here, which is correct */
-    display: none;
-    position: fixed;
-    width: 85%;
-    right: 0;
-    top: 0;
-    height: 100vh;
-    background-color: rgba(31, 41, 55, 0.98);
-    backdrop-filter: blur(8px);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1001;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateX(100%);
-    overflow-y: auto;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 80px 30px 30px; /* Adjust padding for better layout */
-    gap: 1.5rem; /* Adjust spacing between menu items */
-  }
-
-  nav a {
-    font-size: 1.2rem; /* Make the font size larger for mobile */
-  }
-  
-  /* ... rest of the styles in this media query ... */
 }
 
 /* Support Page Hero Section Styles */
