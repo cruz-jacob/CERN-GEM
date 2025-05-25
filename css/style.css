@@ -8,7 +8,7 @@ Last Updated: May 23, 2025
 */
 
 /* =================================================
-   Table of Contents
+    Table of Contents
 ====================================================
 - Global Reset & Base Styles
 - Header Styles
@@ -2401,6 +2401,231 @@ address {
   margin-top: 0;
 }
 
+/* ======================= Team Section Styles ======================= */
+
+.team-section {
+  padding: 60px 0;
+  background-color: #12181f; /* Match the dark background */
+}
+
+.team-section .section-heading {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.team-section .section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+}
+
+.team-grid {
+  display: grid;
+  /* This creates a responsive grid. It will show 4 columns on large screens, 
+      2 on medium, and 1 on small screens automatically. */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.team-member {
+  background: rgba(31, 41, 55, 0.4);
+  border-radius: 8px;
+  text-align: center;
+  padding: 30px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 230, 118, 0.1);
+}
+
+.team-member:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.team-member .member-image {
+  margin: 0 auto 20px auto;
+  width: 120px;
+  height: 120px;
+}
+
+.team-member .member-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* This is key for making the image circular */
+  object-fit: cover;
+  border: 3px solid rgba(0, 230, 118, 0.3);
+}
+
+.team-member .member-name {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: #00e676; /* Green accent for the name */
+}
+
+.team-member .member-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team-member .member-bio {
+  font-size: 0.95rem;
+  color: #c0c0c0;
+  line-height: 1.5;
+}
+/* ======================= Modern CTA Section Styles ======================= */
+
+.modern-cta {
+  background: linear-gradient(135deg, #1f2937, #12181f); /* Dark gradient background */
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-cta::before { /* Subtle pattern overlay */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  background-image: radial-gradient(circle, rgba(0, 230, 118, 0.15) 1px, transparent 1px);
+  background-size: 15px 15px;
+}
+
+.modern-cta .cta-content {
+  position: relative; /* For z-index stacking if needed */
+  z-index: 1;
+}
+
+.modern-cta .cta-accent-line {
+  width: 100px;
+  height: 4px;
+  background-color: #00e676; /* Green accent line */
+  margin: 0 auto 30px auto;
+  border-radius: 2px;
+}
+
+.modern-cta .cta-heading {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.modern-cta .cta-description {
+  font-size: 1.15rem;
+  color: #e0e0e0;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  line-height: 1.7;
+}
+
+.modern-cta .cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Styling for buttons within .modern-cta - INCREASED SPECIFICITY */
+section.modern-cta .cta-buttons a.cta-button { /* Increased specificity */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  font-size: 1.05em;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 240px;
+  min-height: 50px;
+  box-sizing: border-box;
+  line-height: 1.2;
+  white-space: nowrap;
+  flex-grow: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  /* Ensure these base styles are not overridden by the more general .cta-button */
+  margin-top: 0; /* Reset margin-top from general .cta-button if it was causing issues */
+}
+
+section.modern-cta .cta-buttons a.cta-button.primary { /* Increased specificity */
+  background-color: #00e676;
+  color: #12181f;
+  border: 2px solid #00e676;
+}
+
+section.modern-cta .cta-buttons a.cta-button.primary:hover { /* Increased specificity */
+  background-color: #00b359;
+  border-color: #00b359;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2);
+}
+
+section.modern-cta .cta-buttons a.cta-button.secondary { /* Increased specificity */
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #00e676;
+   /* Reset margin from general .cta-button.secondary if it was causing issues */
+  margin: 0;
+}
+
+section.modern-cta .cta-buttons a.cta-button.primary:hover { /* Increased specificity */
+  background-color: rgba(0, 230, 118, 0.1);
+  color: #ffffff;
+  border-color: #00e676;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1);
+}
+
+section.modern-cta .cta-buttons a.cta-button.secondary:hover { /* Increased specificity */
+  background-color: rgba(0, 230, 118, 0.1);
+  color: #002603;
+  border-color: #00e676;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1);
+}
+
+/* Responsive adjustments for Modern CTA */
+@media (max-width: 767px) {
+  .modern-cta {
+    padding: 60px 0;
+  }
+  .modern-cta .cta-heading {
+    font-size: 2rem;
+  }
+  .modern-cta .cta-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  .modern-cta .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  /* Ensure specificity for mobile overrides as well */
+  section.modern-cta .cta-buttons a.cta-button {
+    width: 100%; 
+    max-width: 300px;
+    white-space: normal; 
+    overflow: visible;
+  }
+}
+
+
 /* --- Responsive adjustments for About Page --- */
 @media (max-width: 767px) {
   .purpose-section .section-heading,
@@ -2419,4 +2644,4 @@ address {
   }
 }
 ```
-This updated code should now correctly center the "Our Purpose" heading and increase its font size as intend
+This updated code should now correctly center the "Our Purpose" heading and increase its font size as int
