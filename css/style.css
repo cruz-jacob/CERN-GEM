@@ -3,7 +3,7 @@
 IMORTANT: Don't use anotheer CSS file for this project.
 Vigilant Shield Anti-Cheat Website
 Author: [Your Name]
-Last Updated: May 23, 2025
+Last Updated: May 25, 2025
 =================================================
 */
 
@@ -17,6 +17,8 @@ Last Updated: May 23, 2025
 - Inner Page & Form Styles
 - Footer Styles
 - Responsive Media Queries
+- Support Page Specific Styles
+- About Page Specific Styles
 ==================================================== */
 
 /* ======================= Global Reset & Base Styles ======================= */
@@ -93,7 +95,7 @@ header {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 230, 118, 0.1);
   position: sticky;
   top: 0;
-  z-index: 1000; /* Raised z-index slightly for stacking context */
+  z-index: 1000;
   padding: 1rem 0;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -154,7 +156,7 @@ nav a {
   will-change: transform;
 }
 
-nav a:hover, nav a:focus {
+nav a:hover, nav a:focus, nav a[aria-current="page"] {
   color: #00e676;
   transform: translateY(-1px);
 }
@@ -171,7 +173,7 @@ nav a::after {
   will-change: width;
 }
 
-nav a:hover::after, nav a:focus::after {
+nav a:hover::after, nav a:focus::after, nav a[aria-current="page"]::after {
   width: 100%;
 }
 
@@ -246,14 +248,14 @@ main {
   pointer-events: none;
 }
 
-.page-hero h2 {
+.page-hero h1, .page-hero h2 {
   position: relative;
   font-size: 2.8em;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   display: inline-block;
 }
 
-.page-hero h2::after {
+.page-hero h1::after, .page-hero h2::after {
   content: '';
   position: absolute;
   bottom: -15px;
@@ -264,11 +266,11 @@ main {
   background: #00e676;
 }
 
-.page-hero p {
+.page-hero p, .hero-subtitle {
   font-size: 1.2em;
   color: #e0e0e0;
   max-width: 700px;
-  margin: 20px auto 0;
+  margin: 0 auto;
   letter-spacing: 0.3px;
 }
 
@@ -280,10 +282,30 @@ main {
   background-color: #1f2937;
 }
 
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #ffffff;
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: #00e676;
+  border-radius: 1.5px;
+}
+
 .content-section h3 {
-  font-size: 2em;
+  font-size: 1.8em;
   color: #00e676;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .content-section ul {
@@ -480,6 +502,13 @@ main {
   margin-top: 0;
 }
 
+.protected-games-section .section-heading { 
+  margin-bottom: 30px;
+}
+.protected-games-section .section-heading::after { 
+    display: none;
+}
+
 .protected-games-section::before {
   content: '';
   position: absolute;
@@ -505,9 +534,9 @@ main {
   transform: scale(1.02);
 }
 
-.cta-section {
+.cta-section { 
   background: linear-gradient(135deg, #1f2937, #12181f);
-  padding: 50px 0;
+  padding: 50px 0; 
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1409,25 +1438,30 @@ footer::before {
 }
 
 .footer-about {
-  padding-right: 20px;
+  text-align: center; /* UPDATED: Center content on desktop */
+  padding-right: 0; /* UPDATED: Removed padding that could interfere with centering */
+}
+
+.footer-logo-link {
+  display: inline-flex; /* Ensures the link itself can be centered */
+  align-items: center; 
+  text-decoration: none;
+  gap: 10px; 
+  justify-content: center; /* Centers the brand within the link */
 }
 
 .footer-brand {
-  display: flex;
+  display: flex; /* Already flex, good */
   align-items: center;
   margin-bottom: 15px;
   gap: 15px;
+  /* justify-content: center; /* Added by media query, but can be here too for desktop */
 }
 
 .footer-logo {
   max-width: 40px;
   height: auto;
   border-radius: 6px;
-}
-
-.footer-logo-link {
-  display: inline-block;
-  text-decoration: none;
 }
 
 .footer-site-name {
@@ -1442,19 +1476,23 @@ footer::before {
   line-height: 1.5;
   font-size: 0.95em;
   position: relative;
-  padding-left: 10px;
+  /* padding-left: 10px; /* Removed for centering */
 }
 
 .footer-tagline::before {
+  /* display: none; /* Hide if centered, or adjust to be centered */
   content: '';
   position: absolute;
-  left: 0;
-  top: 5px;
-  height: calc(100% - 10px);
-  width: 2px;
-  background: linear-gradient(to bottom, #00e676, transparent);
+  left: 50%; /* Center the line */
+  transform: translateX(-50%); /* Adjust for its own width */
+  bottom: -10px; /* Position below the tagline */
+  height: 2px;
+  width: 50px; /* Adjust width as needed */
+  background: linear-gradient(to right, #00e676, transparent);
   border-radius: 2px;
+  opacity: 0.5;
 }
+
 
 address {
   font-style: normal;
@@ -1628,7 +1666,7 @@ address {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Changed to wrap for better responsiveness */
+  flex-wrap: wrap; 
   gap: 15px;
 }
 
@@ -1778,12 +1816,27 @@ address {
   .footer-main {
     grid-template-columns: 1fr;
     gap: 40px;
-    text-align: center;
+    text-align: center; 
     padding: 0 25px 50px;
   }
   .footer-about {
-    padding-right: 0;
+    padding-right: 0; /* Already handled by desktop rule change */
     margin-bottom: 35px;
+    text-align: center; 
+  }
+  .footer-logo-link { 
+    display: inline-flex; 
+    justify-content: center; 
+    padding-left: 0; 
+  }
+   .footer-brand { 
+    justify-content: center;
+  }
+  .footer-tagline::before {
+    display: none; 
+  }
+  .footer-tagline {
+    padding-left: 0; 
   }
   address {
     margin-top: 12px;
@@ -1791,13 +1844,7 @@ address {
     font-size: 0.85em;
     opacity: 0.8;
   }
-  .footer-brand {
-    justify-content: center;
-    gap: 12px;
-  }
-  .footer-logo {
-    max-width: 32px;
-  }
+ 
   .footer-site-name {
     font-size: 1.1em;
   }
@@ -1813,18 +1860,7 @@ address {
     width: auto;
     text-align: center;
   }
-  .footer-logo-link {
-    display: flex;
-    justify-content: center;
-  }
-  .footer-tagline::before {
-    display: none;
-  }
-  .footer-tagline {
-    padding-left: 0;
-    margin: 15px 0;
-    font-size: 0.9em;
-  }
+ 
   .footer-links {
     grid-template-columns: 1fr 1fr;
     width: 100%;
@@ -1839,7 +1875,7 @@ address {
     transform: translateX(-50%);
   }
   .footer-social {
-    grid-column: 1; /* Reset grid-column */
+    grid-column: 1; 
     margin-top: 20px;
   }
   .social-icons {
@@ -1964,7 +2000,7 @@ address {
     font-size: 0.9rem;
   }
   /* --- Mobile Navigation ("Hamburger Menu") --- */  header nav {
-    display: block; /* Changed from 'none' to always be in the DOM flow */
+    display: block; 
     position: fixed;
     width: 85%;
     right: 0;
@@ -1977,18 +2013,18 @@ address {
     z-index: 1001;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateX(100%); /* Start off-screen */
+    transform: translateX(100%); 
     overflow-y: auto;
-    visibility: visible; /* Ensure it's visible when transformed */
-    padding-bottom: 50px; /* Add extra padding at bottom to ensure all menu items are accessible */
+    visibility: visible; 
+    padding-bottom: 50px; 
   }
   .navToggler:checked ~ nav {
-    transform: translateX(0); /* Slide in when toggler is checked */
+    transform: translateX(0); 
   }
   header nav ul {
     flex-direction: column;
     width: 100%;
-    padding: 80px 0 30px 0; /* Increased top padding */
+    padding: 80px 0 30px 0; 
     margin: 0;
     align-items: center;
     gap: 12px;
@@ -2012,11 +2048,11 @@ address {
   header nav a[aria-current="page"] {
     background-color: rgba(0, 230, 118, 0.15);
     color: #00e676;
-    transform: none; /* Reset transform for mobile nav items */
+    transform: none; 
   }
   .navTogglerMenu {
     display: block;
-    z-index: 1002; /* Ensure it's above the menu */
+    z-index: 1002; 
   }
   .navTogglerMenu svg {
     stroke-width: 1.75px;
@@ -2025,19 +2061,19 @@ address {
   .navTogglerMenu:hover svg {
     stroke: #00e676;
   }
-  /* Fixed menu icon visibility */
+ 
   .menuOpen, .menuClose {
     display: block;
     transition: all 0.3s ease;
   }
   .menuClose {
-    display: none; /* Hide X by default */
+    display: none; 
   }
   .navToggler:checked ~ .navTogglerMenu .menuOpen { 
-    display: none; /* Hide hamburger icon when menu is open */
+    display: none; 
   }
   .navToggler:checked ~ .navTogglerMenu .menuClose { 
-    display: block; /* Show X icon when menu is open */
+    display: block; 
   }  .menu-overlay {
     position: fixed;
     top: 0;
@@ -2051,12 +2087,12 @@ address {
     transition: opacity 0.3s ease, visibility 0s 0.3s linear;
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-    pointer-events: none; /* Prevent clicks when hidden */
+    pointer-events: none; 
   }.navToggler:checked ~ .menu-overlay {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
-    pointer-events: auto; /* Allow clicks on the overlay when visible */
+    pointer-events: auto; 
   }
   .navTogglerMenu .menuClose { display: none; }
   .navToggler:checked ~ .navTogglerMenu .menuOpen { display: none; }
@@ -2113,19 +2149,106 @@ address {
   }
 }
 
-/* ======================= FAQ Section Styles ======================= */
-.faq-section {
-  padding: 60px 0;
-  max-width: 800px;
-  margin: 0 auto;
+/* ======================= Support Page Specific Styles ======================= */
+.support-hero {
+  position: relative;
+  background: url('../images/support-hero-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 60px 0; 
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate; 
 }
 
-.faq-section h2 {
-  text-align: center;
+.support-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 24, 31, 0.7),
+    rgba(31, 41, 55, 0.8)
+  );
+  mix-blend-mode: overlay; 
+  pointer-events: none;
+}
+
+.support-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 230, 118, 0.2),
+    transparent 70%
+  );
+  animation: pulse 6s infinite alternate; 
+  pointer-events: none;
+}
+
+@keyframes pulse { 
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.support-hero .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.faq-section {
+  padding: 60px 0; 
+}
+
+.faq-section .faq-main-heading { 
+  font-size: 2.2em;
   margin-bottom: 40px;
   color: #ffffff;
-  font-size: 2.2em;
+  text-align: center;
 }
+.faq-section .faq-main-heading::after { 
+    display: none;
+}
+
+
+.faq-category {
+  margin-bottom: 40px; 
+}
+.faq-category:last-of-type {
+    margin-bottom: 0; 
+}
+
+.faq-category-title {
+  font-size: 1.8em; 
+  color: #00e676; 
+  margin-bottom: 25px; 
+  padding-bottom: 15px; 
+  border-bottom: 1px solid rgba(0, 230, 118, 0.3); 
+  text-align: left; 
+}
+.faq-category-title::after { 
+    display: none;
+}
+
 
 .faq-item {
   background: rgba(31, 41, 55, 0.4);
@@ -2147,6 +2270,7 @@ address {
   font-weight: 500;
   list-style: none;
   color: #ffffff;
+  font-size: 1.1rem; 
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -2176,137 +2300,74 @@ address {
 }
 
 .support-resources-wrapper {
+  /* .content-section handles padding */
+}
+
+.support-resources-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 30px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.knowledge-base-promo,
-.contact-support-section {
-  background: rgba(31, 41, 55, 0.4);
-  padding: 30px;
-  border-radius: 8px;
+@media (min-width: 992px) { 
+    .support-resources-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+.help-resource-item { 
+  background: rgba(31, 41, 55, 0.5); 
+  padding: 35px; 
+  border-radius: 10px; 
   text-align: center;
-  border: 1px solid rgba(0, 230, 118, 0.2);
+  border: 1px solid rgba(0, 230, 118, 0.25); 
   transition: all 0.3s ease;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between; 
 }
 
-.knowledge-base-promo:hover,
-.contact-support-section:hover {
-  border-color: rgba(0, 230, 118, 0.4);
-  background: rgba(31, 41, 55, 0.6);
+.help-resource-item:hover {
+  border-color: #00e676; 
+  background: rgba(31, 41, 55, 0.7);
+  transform: translateY(-5px) scale(1.02); 
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); 
 }
 
-.knowledge-base-promo h3,
-.contact-support-section h3 {
+.help-resource-item h3 { 
   color: #ffffff;
-  font-size: 1.8em;
+  font-size: 1.7em; 
   margin-bottom: 15px;
 }
-
-.knowledge-base-promo p,
-.contact-support-section p {
-  color: #e0e0e0;
-  margin-bottom: 25px;
-  line-height: 1.6;
+.help-resource-item h3::after { 
+    display: none;
 }
 
-@media (max-width: 768px) {
-  .support-resources-wrapper {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
-  
-  .faq-section {
-    padding: 40px 20px;
-  }
-  
-  .faq-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 30px;
-  }
-  
-  .knowledge-base-promo,
-  .contact-support-section {
-    padding: 25px;
-  }
+
+.help-resource-item p {
+  color: #c0c5ce; 
+  margin-bottom: 30px; 
+  line-height: 1.7; 
+  flex-grow: 1; 
 }
 
-/* Support Page Hero Section Styles */
-.support-hero {
-  position: relative;
-  background: url('../images/support-hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  /* position: relative; /* This was duplicated */
-  padding: 40px 0;
-  text-align: center;
-  overflow: hidden;
-  isolation: isolate; /* Enable blend modes */
+.help-resource-item .cta-button { 
+  margin-top: auto; 
+  padding: 14px 30px; 
+  font-size: 1em;
 }
 
-.support-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(18, 24, 31, 0.7),
-    rgba(31, 41, 55, 0.8)
-  );
-  mix-blend-mode: overlay; /* Blend mode for a "techy" effect */
-  pointer-events: none;
+.protected-games-section .section-heading {
+    margin-bottom: 30px; 
+}
+.protected-games-section .section-heading::after { 
+    display: none;
 }
 
-.support-hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 230, 118, 0.2),
-    transparent 70%
-  );
-  animation: pulse 6s infinite alternate; /* Subtle pulsing effect */
-  pointer-events: none;
-}
 
-/* Keyframe animation for pulsing effect - This was duplicated, keeping one */
-/* @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-} */
-
-/* Optional: Add animated particles */
-.support-hero .particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-/* ======================= About Page Styles ======================= */
-
+/* ======================= About Page Styles (For about.html) ======================= */
 .purpose-section {
-  /* This centers the heading and the paragraph within the section */
   text-align: center;
   padding-top: 0;
 }
@@ -2314,8 +2375,11 @@ address {
 .purpose-section .section-heading {
   font-size: 2.8rem;
   margin-bottom: 30px;
-  /* Removed text-align from here as the parent handles it */
 }
+.purpose-section .section-heading::after { 
+    display: none;
+}
+
 
 .purpose-section .purpose-text {
   max-width: 800px;
@@ -2328,27 +2392,29 @@ address {
 .mission-vision-container {
   display: flex;
   gap: 40px;
-  text-align: left; /* Resets text alignment for this section */
+  text-align: left; 
 }
 
 .mission-vision-item {
-  flex: 1; /* Each item takes equal space */
+  flex: 1; 
   background: rgba(18, 24, 31, 0.6);
   padding: 30px;
   border-radius: 8px;
   border-left: 3px solid rgba(0, 230, 118, 0.4);
 }
 
-.mission-vision-item h3 {
-  font-size: 1.8em;
-  color: #00e676;
-  margin-bottom: 15px;
+.mission-vision-item h3 { 
+  /* Uses .content-section h3 styles */
 }
+.mission-vision-item h3::after { 
+    display: none;
+}
+
 
 .why-us-section { 
   border-bottom: 1px solid rgba(0, 230, 118, 0.2); 
   padding-bottom: 60px; 
-  margin-bottom: 20px;  /* UPDATED spacing */
+  margin-bottom: 20px;
 }
 
 .why-us-section .section-heading {
@@ -2364,7 +2430,7 @@ address {
   transform: translateX(-50%);
 }
 
-.why-us-section .section-heading::after {
+.why-us-section .section-heading::after { 
   content: '';
   position: absolute;
   bottom: 0;
@@ -2406,17 +2472,13 @@ address {
   margin-top: 0;
 }
 
-/* ======================= Team Section Styles ======================= */
-
 .team-section {
-  padding: 30px 0 40px; /* UPDATED spacing */
+  padding: 30px 0 40px; 
   background-color: #12181f; 
 }
 
-.team-section .section-heading {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 15px;
+.team-section .section-heading { 
+  /* Uses general .section-heading */
 }
 
 .team-section .section-subtitle {
@@ -2482,7 +2544,6 @@ address {
   line-height: 1.5;
 }
 
-/* ======================= Modern CTA Section Styles ======================= */
 .modern-cta {
   background: linear-gradient(135deg, #1f2937, #12181f);
   padding: 80px 0;
@@ -2522,6 +2583,10 @@ address {
   margin-bottom: 20px;
   line-height: 1.3;
 }
+.modern-cta .cta-heading::after { 
+    display: none;
+}
+
 
 .modern-cta .cta-description {
   font-size: 1.15rem;
@@ -2539,60 +2604,60 @@ address {
 }
 
 section.modern-cta .cta-buttons a.cta-button {
-  display: inline-flex !important; /* DIAGNOSTIC */
-  align-items: center !important; /* DIAGNOSTIC */
-  justify-content: center !important; /* DIAGNOSTIC */
-  padding: 16px 20px !important; /* DIAGNOSTIC */
-  font-size: 1.05em !important; /* DIAGNOSTIC */
-  font-family: 'Manrope', sans-serif !important; /* DIAGNOSTIC */
-  font-weight: 700 !important; /* DIAGNOSTIC */
-  border-radius: 5px !important; /* DIAGNOSTIC */
-  text-decoration: none !important; /* DIAGNOSTIC */
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important; /* DIAGNOSTIC */
-  will-change: transform !important; /* DIAGNOSTIC */
-  text-transform: uppercase !important; /* DIAGNOSTIC */
-  letter-spacing: 0.5px !important; /* DIAGNOSTIC */
-  width: 240px !important; /* DIAGNOSTIC */
-  min-height: 50px !important; /* DIAGNOSTIC */
-  box-sizing: border-box !important; /* DIAGNOSTIC */
-  line-height: 1.2 !important; /* DIAGNOSTIC */
-  white-space: nowrap !important; /* DIAGNOSTIC */
-  flex-grow: 0 !important; /* DIAGNOSTIC */
-  flex-shrink: 0 !important; /* DIAGNOSTIC */
-  overflow: hidden !important; /* DIAGNOSTIC */
-  margin-top: 0 !important; /* DIAGNOSTIC */
-  margin-left: 0 !important; /* DIAGNOSTIC */
-  margin-right: 0 !important; /* DIAGNOSTIC */
-  margin-bottom: 0 !important; /* DIAGNOSTIC */
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 16px 20px; 
+  font-size: 1.05em; 
+  font-family: 'Manrope', sans-serif; 
+  font-weight: 700; 
+  border-radius: 5px; 
+  text-decoration: none; 
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; 
+  will-change: transform; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px; 
+  width: 240px; 
+  min-height: 50px; 
+  box-sizing: border-box; 
+  line-height: 1.2; 
+  white-space: nowrap; 
+  flex-grow: 0; 
+  flex-shrink: 0; 
+  overflow: hidden; 
+  margin-top: 0; 
+  margin-left: 0; 
+  margin-right: 0; 
+  margin-bottom: 0; 
 }
 
 section.modern-cta .cta-buttons a.cta-button.primary {
-  background-color: #00e676 !important; /* DIAGNOSTIC */
-  color: #12181f !important; /* DIAGNOSTIC */
-  border: 2px solid #00e676 !important; /* DIAGNOSTIC */
+  background-color: #00e676; 
+  color: #12181f; 
+  border: 2px solid #00e676; 
 }
 
 section.modern-cta .cta-buttons a.cta-button.primary:hover {
-  background-color: #00b359 !important; /* DIAGNOSTIC */
-  border-color: #00b359 !important; /* DIAGNOSTIC */
-  transform: translateY(-3px) !important; /* DIAGNOSTIC */
-  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2) !important; /* DIAGNOSTIC */
-  color: white !important; /* DIAGNOSTIC - Ensuring hover color is also specific */
+  background-color: #00b359; 
+  border-color: #00b359; 
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2); 
+  color: white; 
 }
 
 section.modern-cta .cta-buttons a.cta-button.secondary {
-  background-color: transparent !important; /* DIAGNOSTIC */
-  color: #ffffff !important; /* DIAGNOSTIC - Changed to white for better visibility on dark bg if primary styles bleed */
-  border: 2px solid #00e676 !important; /* DIAGNOSTIC */
-  margin: 0 !important; /* DIAGNOSTIC */
+  background-color: transparent; 
+  color: #ffffff; 
+  border: 2px solid #00e676; 
+  margin: 0; 
 }
 
 section.modern-cta .cta-buttons a.cta-button.secondary:hover {
-  background-color: rgba(0, 230, 118, 0.1) !important; /* DIAGNOSTIC */
-  color: #12181f !important; /* DIAGNOSTIC - Changed to dark text on light green hover */
-  border-color: #00e676 !important; /* DIAGNOSTIC */
-  transform: translateY(-3px) !important; /* DIAGNOSTIC */
-  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1) !important; /* DIAGNOSTIC */
+  background-color: rgba(0, 230, 118, 0.1); 
+  color: #12181f; 
+  border-color: #00e676; 
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1); 
 }
 
 @media (max-width: 767px) {
@@ -2612,10 +2677,10 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
     gap: 15px;
   }
   section.modern-cta .cta-buttons a.cta-button { 
-    width: 100% !important; /* DIAGNOSTIC */
-    max-width: 300px !important; /* DIAGNOSTIC */
-    white-space: normal !important; /* DIAGNOSTIC */
-    overflow: visible !important; /* DIAGNOSTIC */
+    width: 100%; 
+    max-width: 300px;
+    white-space: normal; 
+    overflow: visible;
   }
 }
 
@@ -2637,6 +2702,52 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
     gap: 25px;
   }
 }
-```
 
-This updated CSS file should now have the correct spacing between the "Why Us" and "Team" sec
+/* --- Responsive adjustments for Support Page --- */
+@media (max-width: 992px) { 
+  .support-resources-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  }
+}
+
+@media (max-width: 600px) { 
+  .support-resources-grid {
+    grid-template-columns: 1fr;
+  }
+  .faq-section { 
+    padding: 40px 20px;
+  }
+  .faq-section .faq-main-heading {
+    font-size: 1.8em;
+  }
+  .faq-category-title {
+    font-size: 1.5em;
+  }
+  .help-resource-item {
+    padding: 25px;
+  }
+}
+
+/* --- Footer Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .footer-main {
+    text-align: center; 
+  }
+  .footer-about {
+    text-align: center; 
+  }
+  .footer-logo-link { 
+    display: inline-flex; 
+    justify-content: center; 
+    padding-left: 0; 
+  }
+   .footer-brand { 
+    justify-content: center;
+  }
+  .footer-tagline::before {
+    display: none; 
+  }
+  .footer-tagline {
+    padding-left: 0; 
+  }
+}

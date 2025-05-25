@@ -10,118 +10,142 @@
   <title>Vigilant Shield Support - FAQ and Help Center</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>   <!-- 
+<body>
+  <!-- 
   ====================================================
-  Header Section: Contains logo, navigation menu and mobile toggle
+  Header Section
   ==================================================== 
   -->
   <header>
     <div class="container header-container">
- <a href="index.html" class="logo-link">
- <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="site-logo">
- <p class="site-name">Vigilant Shield</p></a>
- <input type="checkbox" class="navToggler" id="navToggler">
- <label for="navToggler" class="navTogglerMenu" aria-label="Toggle navigation menu">
- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuOpen">
- <line x1="3" y1="12" x2="21" y2="12"></line>
- <line x1="3" y1="6" x2="21" y2="6"></line>
- <line x1="3" y1="18" x2="21" y2="18"></line>
- </svg>
- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuClose">
- <line x1="18" y1="6" x2="6" y2="18" stroke="#00e676"></line>
- <line x1="6" y1="6" x2="18" y2="18" stroke="#00e676"></line>
- </svg>
- </label> <div class="menu-overlay"></div>
- <nav>
- <ul>
+      <a href="index.html" class="logo-link">
+        <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="site-logo">
+        <p class="site-name">Vigilant Shield</p>
+      </a>
+      <input type="checkbox" class="navToggler" id="navToggler">
+      <label for="navToggler" class="navTogglerMenu" aria-label="Toggle navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuOpen">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menuClose">
+          <line x1="18" y1="6" x2="6" y2="18" stroke="#00e676"></line>
+          <line x1="6" y1="6" x2="18" y2="18" stroke="#00e676"></line>
+        </svg>
+      </label>
+      <div class="menu-overlay"></div>
+      <nav>
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html" aria-current="page">Support</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <!-- 
   ====================================================
   Main Content: Support center and help resources
   ==================================================== 
-  -->  <main>    <!-- Hero Section: Page title and description -->
+  -->
+  <main>
     <section class="support-hero">
       <div class="container">
         <h1>Support Center</h1>
+        <p>Find answers to common questions and get help with Vigilant Shield services.</p>
       </div>
     </section>
     
-    <!-- =============================================
-    1. FAQ SECTION: Moved to the top as the primary focus
-    ============================================== -->
-    <section class="faq-section">
+    <!-- 
+    =============================================
+    1. FAQ SECTION
+    ============================================== 
+    -->
+    <section class="faq-section content-section">
       <div class="container">
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        
-        <details class="faq-item">
-          <summary>How do I integrate Vigilant Shield into my game?</summary>
-          <p>Integration is designed to be straightforward. We provide comprehensive SDKs for popular game engines like Unity and Unreal Engine, along with detailed documentation. You can find the guides in our Developer Portal or contact our support team for assistance.</p>
-        </details>
+        <h2 class="section-heading faq-main-heading">Frequently Asked Questions</h2> <div class="faq-category">
+          <h3 class="faq-category-title">General Questions</h3>
+          <details class="faq-item">
+            <summary>How do I integrate Vigilant Shield into my game?</summary>
+            <p>Integration is designed to be straightforward. We provide comprehensive SDKs for popular game engines like Unity and Unreal Engine, along with detailed documentation. You can find the guides in our Developer Portal or contact our support team for assistance.</p>
+          </details>
 
-        <details class="faq-item">
-          <summary>What is the performance impact of Vigilant Shield?</summary>
-          <p>We've engineered Vigilant Shield to have minimal performance impact on both client devices and game servers. Our processes are highly optimized to ensure a seamless experience for your players.</p>
-        </details>
+          <details class="faq-item">
+            <summary>What is the performance impact of Vigilant Shield?</summary>
+            <p>We've engineered Vigilant Shield to have minimal performance impact on both client devices and game servers. Our processes are highly optimized to ensure a seamless experience for your players.</p>
+          </details>
+        </div>
 
-        <details class="faq-item">
-          <summary>How does Vigilant Shield handle new and unknown cheats?</summary>
-          <p>Our system uses a combination of heuristic analysis, machine learning, and behavioral detection to identify suspicious activities that may indicate new or unknown cheats. We also have a dedicated research team constantly updating our threat intelligence.</p>
-        </details>
+        <div class="faq-category">
+          <h3 class="faq-category-title">Technical & Advanced Topics</h3>
+          <details class="faq-item">
+            <summary>How does Vigilant Shield handle new and unknown cheats?</summary>
+            <p>Our system uses a combination of heuristic analysis, machine learning, and behavioral detection to identify suspicious activities that may indicate new or unknown cheats. We also have a dedicated research team constantly updating our threat intelligence.</p>
+          </details>
 
-        <details class="faq-item">
-          <summary>What types of games is Vigilant Shield suitable for?</summary>
-          <p>Vigilant Shield is adaptable to a wide range of online multiplayer games, from first-person shooters and MOBAs to MMORPGs and competitive strategy games. Contact us to discuss your specific needs.</p>
-        </details>
+          <details class="faq-item">
+            <summary>What types of games is Vigilant Shield suitable for?</summary>
+            <p>Vigilant Shield is adaptable to a wide range of online multiplayer games, from first-person shooters and MOBAs to MMORPGs and competitive strategy games. Contact us to discuss your specific needs.</p>
+          </details>
 
-        <details class="faq-item">
-          <summary>How are false positives handled?</summary>
-          <p>We take false positives very seriously. Our detection algorithms are rigorously tested, and we have systems in place for reviewing and rapidly addressing any suspected false positives. We also provide tools for developers to manage and report such instances.</p>
-        </details>
-      </div>
+          <details class="faq-item">
+            <summary>How are false positives handled?</summary>
+            <p>We take false positives very seriously. Our detection algorithms are rigorously tested, and we have systems in place for reviewing and rapidly addressing any suspected false positives. We also provide tools for developers to manage and report such instances.</p>
+          </details>
+        </div>
+        </div>
     </section>
     
-    <!-- =============================================
-    2. HELP RESOURCES: Knowledge Base and Contact Support side by side
-    ============================================== -->
-    <div class="support-resources-wrapper">
-      <!-- Knowledge Base Section -->
-      <section class="knowledge-base-promo alternate-bg">
-        <div class="container">
-          <h3>Explore Our Knowledge Base</h3>
-          <p>For in-depth guides, API documentation, and troubleshooting tips, please visit our comprehensive Knowledge Base.</p>
-          <a href="#" class="cta-button">Visit Knowledge Base</a>
+    <!-- 
+    =============================================
+    2. HELP RESOURCES: Knowledge Base, Downloads, and Contact Support
+    ============================================== 
+    -->
+    <div class="support-resources-wrapper content-section">
+      <div class="container">
+        <div class="support-resources-grid">
+          <section class="knowledge-base-promo help-resource-item">
+            <h3>Explore Our Knowledge Base</h3>
+            <p>For in-depth guides, API documentation, and troubleshooting tips, please visit our comprehensive Knowledge Base.</p>
+            <a href="#" class="cta-button">Visit Knowledge Base</a>
+          </section>
+
+          <section class="downloads-promo help-resource-item">
+            <h3>Downloads</h3>
+            <p>Access the latest SDKs, client software, and essential tools to get started with Vigilant Shield.</p>
+            <a href="#" class="cta-button">View Downloads</a>
+          </section>
+          
+          <section class="contact-support-section help-resource-item">
+            <h3>Still Need Help?</h3>
+            <p>If you can't find the answer you're looking for, our dedicated support team is ready to assist you.</p>
+            <a href="contact.html" class="cta-button secondary">Contact Support Team</a>
+          </section>
         </div>
-      </section>
-      
-      <!-- Contact Support Section -->
-      <section class="contact-support-section">
-        <div class="container">
-          <h3>Still Need Help?</h3>
-          <p>If you can't find the answer you're looking for in our FAQ or Knowledge Base, our dedicated support team is ready to assist you.</p>
-          <a href="contact.html" class="cta-button secondary">Contact Support Team</a>
-        </div>
-      </section>
+      </div>
     </div>
     
-    <!-- =============================================
-    3. PROTECTED GAMES SHOWCASE: Visual demonstration of the product
-    ============================================== -->
-    <section class="protected-games-section">
-      <img src="images/protected game.png" alt="Protected Games">
+    <!-- 
+    =============================================
+    3. PROTECTED GAMES SHOWCASE
+    ============================================== 
+    -->
+    <section class="protected-games-section content-section alternate-bg">
+      <div class="container">
+        <h2 class="section-heading showcase-heading">Trusted By Top Game Developers</h2> <img src="images/protected game.png" alt="Showcase of games protected by Vigilant Shield">
+      </div>
     </section>
 
-    <!-- =============================================
-    4. CALL-TO-ACTION: Moved to the bottom as the final encouragement
-    ============================================== -->
-    <section class="cta-section">
+    <!-- 
+    =============================================
+    4. CALL-TO-ACTION
+    ============================================== 
+    -->
+    <section class="cta-section content-section">
       <div class="container">
         <h3>Ready to Secure Your Game?</h3>
         <p>Join leading game developers & gamers who trust Vigilant Shield</p>
@@ -129,16 +153,15 @@
       </div>
     </section>
   </main>
+
   <!-- 
   ====================================================
-  Footer Section: Contains company info, navigation links, and legal info
+  Footer Section
   ==================================================== 
   -->
   <footer>
-    <div class="container footer-main">
-      <!-- Company Information -->
-      <div class="footer-about">
-        <a href="index.html" class="footer-logo-link">
+    <div class="container footer-main">      <div class="footer-about">
+        <a href="index.html" class="logo-link footer-logo-link">
           <div class="footer-brand">
             <img src="images/website_logo.jpeg" alt="Vigilant Shield Logo" class="footer-logo">
             <span class="footer-site-name">Vigilant Shield</span>
@@ -149,9 +172,8 @@
           123 Innovation Drive<br>
           Tech City, USA
         </address>
-      </div>      <!-- Footer Navigation Links -->
+      </div>
       <div class="footer-links">
-        <!-- Primary Navigation -->
         <div class="footer-col">
           <h4>Navigate</h4>
           <ul>
@@ -170,7 +192,6 @@
           </ul>
         </div>
       </div>
-
       <div class="footer-social footer-col">
         <h4>Connect</h4>
         <div class="social-icons">
@@ -179,12 +200,11 @@
           <a href="#" aria-label="YouTube" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
         </div>
       </div>
-    </div>    <!-- Footer Bottom: Copyright and legal links -->
+    </div>
     <div class="footer-bottom">
       <div class="container">
         <div class="footer-bottom-content">
-          <!-- Copyright Information -->
-          <p>&copy;<time datetime="2025">2025</time> Vigilant Shield. All rights reserved.</p>          <!-- Legal Links -->
+          <p>&copy;<time datetime="2025">2025</time> Vigilant Shield. All rights reserved.</p>
           <div class="footer-bottom-links">
             <a href="#">Privacy</a>
             <span class="separator">•</span>
@@ -194,9 +214,9 @@
           </div>
         </div>
       </div>
-    </div>  </footer>
+    </div>
+  </footer>
   
-  <!-- JavaScript for mobile menu functionality -->
   <script src="js/main.js"></script>
 </body>
 </html>
