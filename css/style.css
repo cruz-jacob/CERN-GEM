@@ -17,8 +17,8 @@ Last Updated: May 25, 2025
 - Inner Page & Form Styles
 - Footer Styles
 - Responsive Media Queries
-- Support Page Specific Styles
-- About Page Specific Styles
+- Support Page Specific Styles 
+- About Page Specific Styles 
 ==================================================== */
 
 /* ======================= Global Reset & Base Styles ======================= */
@@ -500,13 +500,6 @@ main {
   text-align: center;
   overflow: hidden;
   margin-top: 0;
-}
-
-.protected-games-section .section-heading { 
-  margin-bottom: 30px;
-}
-.protected-games-section .section-heading::after { 
-    display: none;
 }
 
 .protected-games-section::before {
@@ -1438,24 +1431,23 @@ footer::before {
 }
 
 .footer-about {
-  text-align: center; /* UPDATED: Center content on desktop */
-  padding-right: 0; /* UPDATED: Removed padding that could interfere with centering */
+  text-align: center; 
+  padding-right: 0; 
 }
 
 .footer-logo-link {
-  display: inline-flex; /* Ensures the link itself can be centered */
+  display: inline-flex; 
   align-items: center; 
   text-decoration: none;
   gap: 10px; 
-  justify-content: center; /* Centers the brand within the link */
+  justify-content: center; 
 }
 
 .footer-brand {
-  display: flex; /* Already flex, good */
+  display: flex; 
   align-items: center;
   margin-bottom: 15px;
   gap: 15px;
-  /* justify-content: center; /* Added by media query, but can be here too for desktop */
 }
 
 .footer-logo {
@@ -1476,18 +1468,16 @@ footer::before {
   line-height: 1.5;
   font-size: 0.95em;
   position: relative;
-  /* padding-left: 10px; /* Removed for centering */
 }
 
 .footer-tagline::before {
-  /* display: none; /* Hide if centered, or adjust to be centered */
   content: '';
   position: absolute;
-  left: 50%; /* Center the line */
-  transform: translateX(-50%); /* Adjust for its own width */
-  bottom: -10px; /* Position below the tagline */
+  left: 50%; 
+  transform: translateX(-50%); 
+  bottom: -10px; 
   height: 2px;
-  width: 50px; /* Adjust width as needed */
+  width: 50px; 
   background: linear-gradient(to right, #00e676, transparent);
   border-radius: 2px;
   opacity: 0.5;
@@ -1498,7 +1488,7 @@ address {
   font-style: normal;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9em;
-  margin-top: 15px;
+  margin-top: 25px; 
   line-height: 1.6;
 }
 
@@ -1820,7 +1810,7 @@ address {
     padding: 0 25px 50px;
   }
   .footer-about {
-    padding-right: 0; /* Already handled by desktop rule change */
+    padding-right: 0; 
     margin-bottom: 35px;
     text-align: center; 
   }
@@ -2299,8 +2289,11 @@ address {
   line-height: 1.6;
 }
 
-.support-resources-wrapper {
-  /* .content-section handles padding */
+.support-resources-wrapper .help-resources-heading { 
+    margin-bottom: 40px; 
+}
+.support-resources-wrapper .help-resources-heading::after { 
+    /* Keeps the default underline from .section-heading */
 }
 
 .support-resources-grid {
@@ -2356,7 +2349,13 @@ address {
   margin-top: auto; 
   padding: 14px 30px; 
   font-size: 1em;
+  width: auto; /* Allow buttons to size to content or be set by general .cta-button */
+  min-width: 180px; /* Ensure a decent minimum width */
 }
+.help-resource-item .cta-button.secondary {
+    margin-bottom: 0; /* Reset bottom margin from general .cta-button.secondary if any */
+}
+
 
 .protected-games-section .section-heading {
     margin-bottom: 30px; 
@@ -2626,10 +2625,7 @@ section.modern-cta .cta-buttons a.cta-button {
   flex-grow: 0; 
   flex-shrink: 0; 
   overflow: hidden; 
-  margin-top: 0; 
-  margin-left: 0; 
-  margin-right: 0; 
-  margin-bottom: 0; 
+  margin: 0; /* Reset all margins */
 }
 
 section.modern-cta .cta-buttons a.cta-button.primary {
@@ -2711,7 +2707,7 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
   }
 }
 
-@media (max-width: 600px) { 
+@media (max-width: 767px) { /* Changed from 600px to match other mobile breakpoints */
   .support-resources-grid {
     grid-template-columns: 1fr;
   }
