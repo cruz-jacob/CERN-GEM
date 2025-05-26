@@ -1922,9 +1922,13 @@ form input[type="checkbox"]:checked+label:after {
 /* --- Support Page (support.html) --- */
 .support-hero {
   background-image: url('../images/support-hero-bg.jpg');
+  background-size: cover;
+  background-position: center center;
   background-attachment: fixed;
-  padding: 60px 0;
+  padding: 100px 0;
   isolation: isolate;
+  position: relative;
+  text-align: center;
 }
 
 .support-hero::before {
@@ -1935,9 +1939,11 @@ form input[type="checkbox"]:checked+label:after {
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom,
-      rgba(18, 24, 31, 0.7),
-      rgba(31, 41, 55, 0.8));
-  mix-blend-mode: overlay;
+      rgba(18, 24, 31, 0.75),
+      rgba(31, 41, 55, 0.85));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: -1;
 }
 
 .support-hero::after {
@@ -1948,50 +1954,76 @@ form input[type="checkbox"]:checked+label:after {
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at center,
-      rgba(0, 230, 118, 0.2),
+      rgba(0, 230, 118, 0.25),
       transparent 70%);
   animation: pulseSupport 6s infinite alternate;
+  z-index: -1;
+}
+
+.support-hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.support-hero p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .faq-main-heading {
-  font-size: 2.2em;
+  font-size: 2.5em;
+  margin-bottom: 60px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .faq-category {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .faq-category-title {
-  font-size: 1.8em;
+  font-size: 1.9em;
   color: #00e676;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   padding-bottom: 15px;
-  border-bottom: 1px solid rgba(0, 230, 118, 0.3);
+  border-bottom: 2px solid rgba(0, 230, 118, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .faq-item {
-  background: rgba(31, 41, 55, 0.4);
-  border-radius: 8px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(0, 230, 118, 0.2);
+  background: rgba(31, 41, 55, 0.8);
+  border-radius: 10px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(0, 230, 118, 0.25);
   transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .faq-item:hover {
-  border-color: rgba(0, 230, 118, 0.4);
-  background: rgba(31, 41, 55, 0.6);
+  border-color: rgba(0, 230, 118, 0.5);
+  background: rgba(31, 41, 55, 0.9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .faq-item summary {
-  padding: 20px 25px;
+  padding: 22px 28px;
   cursor: pointer;
   position: relative;
   font-weight: 500;
   list-style: none;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  color: #ffffff;
+  letter-spacing: 0.3px;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -2005,17 +2037,26 @@ form input[type="checkbox"]:checked+label:after {
   top: 50%;
   transform: translateY(-50%);
   color: #00e676;
-  font-size: 1.5em;
+  font-size: 1.6em;
   transition: transform 0.3s ease;
+  font-weight: 300;
 }
 
 .faq-item[open] summary::after {
   transform: translateY(-50%) rotate(45deg);
 }
 
+.faq-item[open] summary {
+  border-bottom: 1px solid rgba(0, 230, 118, 0.2);
+  background: rgba(0, 230, 118, 0.05);
+}
+
 .faq-item p {
-  padding: 0 25px 20px;
+  padding: 20px 28px;
   margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-size: 1.05rem;
 }
 
 .support-resources-grid {
@@ -2169,11 +2210,17 @@ form input[type="checkbox"]:checked+label:after {
   .footer-about {
     padding-right: 0;
   }
-
   .footer-brand,
   .footer-col {
     justify-content: center;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .footer-logo-link {
+    display: flex;
+    justify-content: center;
   }
 
   .footer-col h4::after {
@@ -2345,5 +2392,33 @@ form input[type="checkbox"]:checked+label:after {
   form select,
   form textarea {
     padding: 15px 12px;
+  }
+}
+
+/* =================================================
+   9. ADDITIONAL STYLES
+==================================================== */
+.footer-logo-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 992px) {
+  .footer-about {
+    align-items: center;
+  }
+  
+  .footer-tagline {
+    text-align: center;
+  }
+  
+  address {
+    text-align: center;
   }
 }
