@@ -143,6 +143,22 @@ main {
   to { transform: translateX(100%); opacity: 0.8; }
 }
 
+@keyframes pulseIcon {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 /* =================================================
    4. HEADER & NAVIGATION
 ==================================================== */
@@ -253,7 +269,7 @@ nav a[aria-current="page"]::after {
   position: relative;
   z-index: 1002;
   padding: 10px;
-  margin-right: 0;
+  margin-right: 5px;
   transition: transform 0.3s ease;
 }
 
@@ -263,7 +279,7 @@ nav a[aria-current="page"]::after {
 }
 
 .menuClose {
-  display: none;
+  display: none !important;
 }
 
 .navTogglerMenu:hover {
@@ -274,23 +290,32 @@ nav a[aria-current="page"]::after {
   stroke: #00e676;
 }
 
+/* Increase close icon size and add animation */
+.navTogglerMenu .menuClose {
+  transform: scale(1.2);
+}
+
+.navToggler:checked ~ .navTogglerMenu .menuClose {
+  animation: pulseIcon 1.5s infinite;
+}
+
 .menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 20, 40, 0.6));
   z-index: 1000;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease, visibility 0s 0.3s linear;
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  transition: opacity 0.4s ease, visibility 0s 0.4s linear;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   pointer-events: none;
 }
 
-.navToggler:checked~.menu-overlay {
+.navToggler:checked ~ .menu-overlay {
   visibility: visible;
   opacity: 1;
   transition-delay: 0s;
@@ -298,17 +323,23 @@ nav a[aria-current="page"]::after {
 }
 
 .menu-visible {
-  animation: slideIn 0.3s forwards cubic-bezier(0.25, 1, 0.5, 1);
+  animation: scaleIn 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .menu-hidden {
   animation: slideOut 0.3s forwards cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* =================================================
-   5. FOOTER
-==================================================== */
-footer {
+/* Updated mobile menu toggle button selectors */
+.navToggler:checked ~ .navTogglerMenu .menuOpen {
+  display: none !important;
+}
+
+.navToggler:checked ~ .navTogglerMenu .menuClose {
+  display: block !important;
+}
+
+.footer {
   grid-area: footer;
   background: linear-gradient(to bottom, #12181f, #0a0e14);
   border-top: 1px solid rgba(0, 230, 118, 0.2);
@@ -1048,11 +1079,12 @@ address {
 
 .timeline-item:nth-child(odd) {
   left: 0;
-  text-align: right;
+  text-align: left;
 }
 
 .timeline-item:nth-child(even) {
   left: 50%;
+  text-align: left;
 }
 
 .timeline-item:nth-child(odd) .timeline-dot {
@@ -1069,12 +1101,22 @@ address {
   position: relative;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .timeline-year {
   font-size: 1.5rem;
   color: #00e676;
   margin: 0 0 10px 0;
+  word-break: break-word;
+}
+
+.timeline-content p {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .why-us-grid {
@@ -1230,17 +1272,6 @@ address {
   width: 240px;
   min-height: 50px;
   margin: 0;
-}
-
-.modern-cta .cta-button.primary {
-  background-color: #00e676;
-  border: 2px solid #00e676;
-}
-
-.modern-cta .cta-button.primary:hover {
-  background-color: #00b359;
-  border-color: #00b359;
-  color: white;
 }
 
 /* --- Blog Page (blog.html) --- */
@@ -2255,6 +2286,37 @@ form input[type="checkbox"]:checked+label:after {
   .section-heading {
     font-size: 2rem;
   }
+  
+  /* Timeline responsive fixes */
+  .timeline::after {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 20px;
+  }
+  
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    text-align: left;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: 21px;
+  }
+  
+  .timeline-content {
+    font-size: 0.95rem;
+    padding: 15px 20px;
+  }
+  
+  .timeline-year {
+    font-size: 1.3rem;
+  }
 
   .section-subheading {
     font-size: 1rem;
@@ -2269,101 +2331,126 @@ form input[type="checkbox"]:checked+label:after {
     right: 0;
     top: 0;
     height: 100vh;
-    background-color: rgba(20, 30, 50, 0.75);
+    background: linear-gradient(135deg, rgba(18, 24, 31, 0.95), rgba(31, 41, 55, 0.97));
     backdrop-filter: blur(12px);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1001;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
     transform: translateX(100%);
     overflow-y: auto;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  /* Add subtle texture pattern */
+  header nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2300e676' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: -1;
   }
 
-  .navToggler:checked~nav {
+  /* Add brand logo at the top of mobile menu */
+  .navToggler:checked ~ nav {
     transform: translateX(0);
   }
 
   header nav ul {
     flex-direction: column;
     padding: 80px 0 30px 0;
-    gap: 12px;
+    gap: 18px; /* Increased gap between menu items */
   }
 
   header nav li {
     width: 90%;
     text-align: center;
+    opacity: 0;
+  }
+  
+  /* Staggered animation for menu items */
+  .navToggler:checked ~ nav li:nth-child(1) {
+    animation: fadeInUp 0.4s 0.1s forwards ease-out;
+  }
+  
+  .navToggler:checked ~ nav li:nth-child(2) {
+    animation: fadeInUp 0.4s 0.2s forwards ease-out;
+  }
+  
+  .navToggler:checked ~ nav li:nth-child(3) {
+    animation: fadeInUp 0.4s 0.3s forwards ease-out;
+  }
+  
+  .navToggler:checked ~ nav li:nth-child(4) {
+    animation: fadeInUp 0.4s 0.4s forwards ease-out;
+  }
+  
+  .navToggler:checked ~ nav li:nth-child(5) {
+    animation: fadeInUp 0.4s 0.5s forwards ease-out;
   }
 
   header nav a {
     display: block;
     width: 100%;
-    padding: 14px 0;
-    font-size: 1.1rem;
+    padding: 16px 0;
+    font-size: 1.2rem;
     border-radius: 6px;
     margin: 4px 0;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 230, 118, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  /* Left border for current page indicator */
+  header nav a[aria-current="page"] {
+    border-left: 4px solid #00e676;
+    background: rgba(0, 230, 118, 0.1);
+    padding-left: 15px;
+    color: #00e676;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   header nav a:hover,
-  header nav a:focus,
-  header nav a[aria-current="page"] {
+  header nav a:focus {
     background-color: rgba(0, 230, 118, 0.15);
-    transform: none;
+    transform: scale(1.05);
+    border-bottom-color: rgba(0, 230, 118, 0.5);
+    color: #ffffff;
+  }
+  
+  header nav a:active {
+    transform: scale(0.98);
   }
 
+  /* Make sure the hamburger menu icon is visible */
   .navTogglerMenu {
     display: block;
+    position: relative;
+    z-index: 1002;
+    padding: 10px;
+    margin-right: 5px;
   }
-
-  .navToggler:checked~.navTogglerMenu .menuOpen {
-    display: none;
-  }
-
-  .navToggler:checked~.navTogglerMenu .menuClose {
+  
+  .navTogglerMenu .menuOpen {
     display: block;
   }
-
-  /* --- Other Mobile Adjustments --- */
-  .stats-grid {
-    grid-template-columns: 1fr;
+  
+  .navTogglerMenu .menuClose {
+    display: none;
   }
-
-  .why-us-grid {
-    grid-template-columns: 1fr;
+  
+  /* When menu is toggled open */
+  .navToggler:checked ~ .navTogglerMenu .menuOpen {
+    display: none !important;
   }
-
-  .timeline::after {
-    left: 20px;
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 55px;
-    padding-right: 15px;
-    left: 0 !important;
-    text-align: left !important;
-  }
-
-  .timeline-dot {
-    left: 11px !important;
-    right: auto !important;
-  }
-
-  .blog-filter-container {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .blog-search {
-    max-width: 100%;
-  }
-
-  .newsletter-container {
-    padding: 30px 20px;
-  }
-
-  .footer-main,
-  .footer-bottom-content {
-    padding-left: 20px;
-    padding-right: 20px;
+  
+  .navToggler:checked ~ .navTogglerMenu .menuClose {
+    display: block !important;
   }
 }
 
@@ -2420,5 +2507,74 @@ form input[type="checkbox"]:checked+label:after {
   
   address {
     text-align: center;
+  }
+}
+
+/* Mobile navigation header and branding */
+.mobile-nav-header {
+  padding: 20px;
+  margin-bottom: 20px;
+  display: none;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-nav-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00e676, transparent);
+  opacity: 0.7;
+}
+
+.mobile-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.navToggler:checked ~ nav .mobile-brand {
+  animation: fadeInUp 0.5s forwards ease-out;
+}
+
+.mobile-logo {
+  width: 35px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.mobile-site-name {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Show mobile nav header on small screens only */
+@media (max-width: 767px) {
+  .mobile-nav-header {
+    display: block;
+  }
+  
+  /* Shield-shaped background behind menu items */
+  nav ul::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 70%;
+    background: radial-gradient(ellipse at center, rgba(0, 230, 118, 0.03) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
   }
 }

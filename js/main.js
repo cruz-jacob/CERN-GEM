@@ -46,12 +46,15 @@ function initializeSearch() {
 /**
  * Handles the mobile menu toggle functionality
  * Ensures the X icon appears when menu is toggled and menu items are visible
+ * Applies staggered animations to menu items for a smoother experience
  */
 function initializeMobileMenu() {
   const navToggler = document.getElementById('navToggler');
   const body = document.body;
   const menuOverlay = document.querySelector('.menu-overlay');
   const nav = document.querySelector('nav');
+  const menuItems = document.querySelectorAll('nav li');
+  const mobileBrand = document.querySelector('.mobile-brand');
   
   if (navToggler) {
     navToggler.addEventListener('change', function() {
@@ -63,6 +66,15 @@ function initializeMobileMenu() {
         if (nav) {
           nav.classList.remove('menu-hidden');
           nav.classList.add('menu-visible');
+        }
+        
+        // Reset any existing animations
+        menuItems.forEach(item => {
+          item.style.opacity = '0';
+        });
+        
+        if (mobileBrand) {
+          mobileBrand.style.opacity = '0';
         }
       } else {
         body.style.overflow = '';
