@@ -1320,25 +1320,25 @@ address {
 
 .blog-filter-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 24px;
   margin-bottom: 50px;
-  padding: 20px;
-  background-color: rgba(31, 41, 55, 0.3);
-  border-radius: 8px;
+  padding: 24px;
+  background-color: rgba(31, 41, 55, 0.4);
+  border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.blog-search {
+.blog-search-wrapper {
   position: relative;
-  max-width: 300px;
   width: 100%;
+  max-width: 100%;
 }
 
 .search-input {
   width: 100%;
-  padding: 12px 45px 12px 15px;
+  padding: 14px 45px 14px 18px;
   border-radius: 24px;
   border: 1px solid rgba(0, 230, 118, 0.4);
   background: rgba(18, 24, 31, 0.7);
@@ -1356,7 +1356,7 @@ address {
 .search-button {
   cursor: pointer;
   position: absolute;
-  right: 8px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
@@ -1381,10 +1381,17 @@ address {
   height: 18px;
 }
 
+.category-wrapper {
+  width: 100%;
+  overflow-x: auto; /* For horizontal scrolling on very small screens */
+  padding-bottom: 4px; /* Space for potential scrollbar */
+}
+
 .blog-categories {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
 }
 
 .category-button {
@@ -1396,6 +1403,8 @@ address {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.95rem;
+  min-width: 100px;
+  text-align: center;
 }
 
 .category-button:hover {
@@ -2207,6 +2216,21 @@ form input[type="checkbox"]:checked+label:after {
   .testimonial-grid {
     grid-template-columns: 1fr;
   }
+  
+  /* Blog Filter Spacing for Tablet View */
+  .blog-filter-container {
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .blog-search-wrapper {
+    max-width: 100%;
+  }
+  
+  .blog-categories {
+    width: 100%;
+    justify-content: flex-start;
+  }
 
   .contact-container {
     flex-direction: column;
@@ -2294,6 +2318,22 @@ form input[type="checkbox"]:checked+label:after {
 
   .section-heading {
     font-size: 2rem;
+  }
+  
+  /* Blog Filter Spacing for Mobile View */
+  .blog-filter-container {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .blog-categories {
+    gap: 10px;
+  }
+  
+  .category-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: 90px;
   }
   
   /* Timeline responsive fixes */
@@ -2409,7 +2449,7 @@ form input[type="checkbox"]:checked+label:after {
     border-radius: 6px;
     margin: 4px 0;
     position: relative;
-    border-bottom: 1px solid rgba(0, 230, 118, 0.15);
+    border-bottom: 1px solid rgba(0, 230, 118,   0.15);
     transition: all 0.3s ease;
   }
   
@@ -2486,6 +2526,27 @@ form input[type="checkbox"]:checked+label:after {
   form select,
   form textarea {
     padding: 15px 12px;
+  }
+  
+  /* Blog Filter for Small Mobile View */
+  .blog-filter-container {
+    padding: 15px 12px;
+  }
+  
+  .blog-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .category-button {
+    width: 100%;
+    min-width: unset;
+    padding: 10px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
