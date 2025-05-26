@@ -162,20 +162,32 @@ main {
 /* =================================================
    4. HEADER & NAVIGATION
 ==================================================== */
+@keyframes headerFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 header {
   background: linear-gradient(to right, rgba(18, 24, 31, 0.97), rgba(31, 41, 55, 0.97));
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 230, 118, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 1rem 0;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.5rem 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: headerFadeIn 0.8s ease-out forwards;
+  border-top: 1px solid transparent;
+  background-image: linear-gradient(to right, rgba(18, 24, 31, 0.97), rgba(31, 41, 55, 0.97)), 
+                    linear-gradient(to right, transparent, rgba(0, 230, 118, 0.2), transparent);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
 .logo-link {
@@ -184,12 +196,23 @@ header {
   text-decoration: none;
   gap: 1.25rem;
   padding-left: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-link:hover {
+  transform: scale(1.02);
 }
 
 .site-logo {
   height: 40px;
   width: auto;
   border-radius: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover .site-logo {
+  filter: drop-shadow(0 2px 6px rgba(0, 230, 118, 0.4));
 }
 
 .site-name {
@@ -199,6 +222,11 @@ header {
   font-size: 1.5rem;
   margin: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover .site-name {
+  text-shadow: 0 0 10px rgba(0, 230, 118, 0.3), 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* --- Main Navigation --- */
@@ -213,6 +241,24 @@ nav ul {
   padding: 0;
   gap: 2.25rem;
   align-items: center;
+  position: relative;
+}
+
+nav li {
+  position: relative;
+}
+
+nav li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1.1rem;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(0, 230, 118, 0.4);
+  opacity: 0.6;
 }
 
 nav a {
@@ -222,40 +268,60 @@ nav a {
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 0.7px;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0.5rem;
   position: relative;
   text-transform: uppercase;
-  transition: color 0.2s ease, transform 0.2s ease;
-  will-change: transform;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, color, text-shadow;
 }
 
 nav a:hover,
-nav a:focus,
-nav a[aria-current="page"] {
+nav a:focus {
   color: #00e676;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(0, 230, 118, 0.4);
 }
 
 nav a[aria-current="page"] {
+  color: #00e676;
   font-weight: 700;
+  transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
 }
 
 nav a::after {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: -2px;
   left: 0;
   width: 0;
-  height: 1px;
-  background-color: #00e676;
-  transition: width 0.3s cubic-bezier(0.58, 0.3, 0.005, 1);
-  will-change: width;
+  height: 2px;
+  background: linear-gradient(to right, #00e676, rgba(0, 230, 118, 0.7), rgba(0, 230, 118, 0.3));
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: width, opacity, box-shadow;
+  border-radius: 1px;
+  opacity: 0;
 }
 
 nav a:hover::after,
-nav a:focus::after,
+nav a:focus::after {
+  width: 100%;
+  opacity: 0.7;
+  box-shadow: 0 0 8px rgba(0, 230, 118, 0.4);
+}
+
 nav a[aria-current="page"]::after {
   width: 100%;
+  opacity: 1;
+  height: 2px;
+  bottom: -2px;
+  background: linear-gradient(to right, #00e676, #00e676, rgba(0, 230, 118, 0.7));
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.5), 0 0 5px rgba(0, 230, 118, 0.3);
+}
+
+/* Add subtle hover state effect for the entire header */
+header:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 230, 118, 0.2);
 }
 
 /* --- Mobile Navigation (Hamburger Menu) --- */
@@ -2473,22 +2539,31 @@ form input[type="checkbox"]:checked+label:after {
   header nav a:active {
     transform: scale(0.98);
   }
-
   /* Make sure the hamburger menu icon is visible */
   .navTogglerMenu {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 1002;
-    padding: 10px;
-    margin-right: 5px;
+    padding: 12px;
+    margin-right: 6px;
+    height: 48px;
+    width: 48px;
   }
   
   .navTogglerMenu .menuOpen {
     display: block;
   }
-  
-  .navTogglerMenu .menuClose {
+    .navTogglerMenu .menuClose {
     display: none;
+  }
+  
+  /* Center align the X icon with the header */
+  .navTogglerMenu svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease, stroke 0.3s ease;
   }
   
   /* When menu is toggled open */
@@ -2580,12 +2655,13 @@ form input[type="checkbox"]:checked+label:after {
 
 /* Mobile navigation header and branding */
 .mobile-nav-header {
-  padding: 15px;
-  margin-bottom: 10px;
+  padding: 20px 18px;
+  margin-bottom: 15px;
   display: none;
   border-bottom: 1px solid rgba(0, 230, 118, 0.2);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .mobile-nav-header::before {
@@ -2612,9 +2688,11 @@ form input[type="checkbox"]:checked+label:after {
 .mobile-brand {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 18px;
   opacity: 0;
   transform: translateY(-10px);
+  height: 40px;
+  margin-left: 2px;
 }
 
 .navToggler:checked ~ nav .mobile-brand {
@@ -2622,9 +2700,11 @@ form input[type="checkbox"]:checked+label:after {
 }
 
 .mobile-logo {
-  width: 35px;
+  width: 38px;
   height: auto;
   border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .mobile-site-name {
@@ -2634,12 +2714,27 @@ form input[type="checkbox"]:checked+label:after {
   font-size: 1.3rem;
   margin: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+  padding-top: 2px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 /* Show mobile nav header on small screens only */
 @media (max-width: 767px) {
   .mobile-nav-header {
-    display: block;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Ensure menu items have proper vertical centering */
+  .mobile-brand {
+    height: 42px;
+  }
+  
+  /* Subtle hover effect for the mobile logo */
+  .mobile-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 4px rgba(0, 230, 118, 0.4);
   }
   
   /* Shield-shaped background behind menu items */
