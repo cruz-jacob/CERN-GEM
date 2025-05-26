@@ -10,6 +10,9 @@ function main() {
 
   // Initialize mobile menu functionality
   initializeMobileMenu();
+  
+  // Initialize responsive navigation fixes
+  initializeResponsiveNavFixes();
 }
 
 /**
@@ -119,6 +122,38 @@ function initializeMobileMenu() {
       }
     });
   });
+}
+
+/**
+ * Handles navigation visibility issues when resizing from mobile to desktop view
+ * Ensures the navigation menu is always visible at desktop sizes regardless of checkbox state
+ */
+function initializeResponsiveNavFixes() {
+  function handleNavVisibility() {
+    const navToggler = document.getElementById('navToggler');
+    
+    // Check if we're at desktop width
+    if (window.innerWidth >= 768 && navToggler && navToggler.checked) {
+      // Uncheck the toggle when returning to desktop view
+      navToggler.checked = false;
+      
+      // Reset body overflow
+      document.body.style.overflow = '';
+      
+      // Remove any classes that might be affecting navigation
+      const nav = document.querySelector('nav');
+      if (nav) {
+        nav.classList.remove('menu-hidden');
+        nav.classList.remove('menu-visible');
+      }
+    }
+  }
+
+  // Listen for window resize events
+  window.addEventListener('resize', handleNavVisibility);
+  
+  // Also run this check when the page loads
+  document.addEventListener('DOMContentLoaded', handleNavVisibility);
 }
 
 // Run the main function when the document is ready

@@ -339,6 +339,22 @@ header:hover {
   transition: transform 0.3s ease;
 }
 
+/* Fix for desktop navigation always displaying properly */
+@media (min-width: 768px) {
+  /* Always show navigation at desktop sizes regardless of checkbox state */
+  nav {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Hide mobile-specific elements at desktop size */
+  .menu-overlay {
+    display: none !important;
+  }
+}
+
 .navTogglerMenu svg {
   display: block;
   transition: all 0.3s ease;
