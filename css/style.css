@@ -2866,3 +2866,26 @@ form input[type="checkbox"]:checked+label:after {
     pointer-events: none;
   }
 }
+
+/* Fix for contact form section - Make overlay non-interactive */
+.contact-form-section::before {
+  pointer-events: none; /* Allow clicks to pass through to elements below */
+}
+
+/* Ensure form elements are positioned above the background */
+.form-wrapper {
+  position: relative;
+  z-index: 1; /* Position above the background overlay */
+}
+
+/* Additional fix for specific form elements if needed */
+.contact-form .form-control,
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form select,
+form textarea,
+.form-submit-button {
+  position: relative;
+  z-index: 2; /* Ensure these are above any overlays */
+}
