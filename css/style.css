@@ -2341,8 +2341,8 @@ address {
   top: 0;
   height: 100vh;
   /* UPDATED LINE: */
-  background-color: rgba(25, 40, 35, 0.6); /* Less dark, green hint with an added blue hint */
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(20, 30, 50, 0.75); /* Darker, more blue, and less transparent */
+  -webkit-backdrop-filter: blur(12px); /* This blur will still work with the new color */
   backdrop-filter: blur(12px);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1001;
