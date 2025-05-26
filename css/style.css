@@ -2368,11 +2368,10 @@ form input[type="checkbox"]:checked+label:after {
   .navToggler:checked ~ nav {
     transform: translateX(0);
   }
-
   header nav ul {
     flex-direction: column;
-    padding: 80px 0 30px 0;
-    gap: 18px; /* Increased gap between menu items */
+    padding: 20px 0 30px 0;
+    gap: 12px; /* Reduced gap between menu items */
   }
 
   header nav li {
@@ -2414,14 +2413,13 @@ form input[type="checkbox"]:checked+label:after {
     transition: all 0.3s ease;
   }
   
-  /* Left border for current page indicator */
-  header nav a[aria-current="page"] {
+  /* Left border for current page indicator */  header nav a[aria-current="page"] {
     border-left: 4px solid #00e676;
-    background: rgba(0, 230, 118, 0.1);
+    background: rgba(0, 230, 118, 0.15);
     padding-left: 15px;
     color: #00e676;
     font-weight: 600;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   header nav a:hover,
@@ -2521,8 +2519,8 @@ form input[type="checkbox"]:checked+label:after {
 
 /* Mobile navigation header and branding */
 .mobile-nav-header {
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 15px;
+  margin-bottom: 10px;
   display: none;
   border-bottom: 1px solid rgba(0, 230, 118, 0.2);
   position: relative;
@@ -2538,6 +2536,16 @@ form input[type="checkbox"]:checked+label:after {
   height: 2px;
   background: linear-gradient(to right, transparent, #00e676, transparent);
   opacity: 0.7;
+}
+
+.mobile-nav-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: rgba(0, 230, 118, 0.3);
 }
 
 .mobile-brand {
