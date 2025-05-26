@@ -3561,13 +3561,20 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
   margin-bottom: 15px;
   color: #ffffff;
 }
-.page-hero.blog-hero h2::after { /* Style for underline */
+.page-hero.blog-hero h2::after {
+  /* CRITICAL: Reset position to override the conflicting rule */
+  position: static; 
+  transform: none; /* Also reset the transform property */
+
+  /* Your styling for the line */
   content: '';
   display: block;
   width: 60px;
   height: 3px;
   background-color: #00e676;
-  margin: 15px auto 0; /* Center it and add space */
+  
+  /* The margin will now work correctly */
+  margin: 15px auto 30px; /* Top: 15px, L/R: auto, Bottom: 30px */
 }
 
 .page-hero.blog-hero p {
