@@ -3977,6 +3977,8 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
 }
 
 /* ======================= About Page Styles (For about.html) ======================= */
+
+
 .purpose-section {
   text-align: center;
   padding-top: 0;
@@ -4814,3 +4816,276 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
 .developer-feature-item p {
     color: #c0c5ce;
     font-size: 0.
+}
+
+/* ==========================================================
+   ABOUT PAGE REDESIGN STYLES (DEFINITIVE)
+========================================================== */
+
+/* 1. Enhanced Hero Section
+---------------------------------------------------------- */
+.about-hero {
+  background: #12181f url('../images/background_hero_img.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  padding: 100px 0;
+  overflow: hidden;
+  border-bottom: none;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 24, 31, 0.85);
+  background-image: linear-gradient(rgba(0, 230, 118, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 230, 118, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  backdrop-filter: blur(2px);
+  z-index: 1; /* Set overlay to a lower layer */
+}
+
+/* This container holds the text */
+.about-hero .container {
+    position: relative; /* Required for z-index to work */
+    z-index: 2;         /* Bring the text container to a higher layer */
+}
+
+.about-hero h1.about-hero-title {
+  position: relative;
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.about-hero h1.about-hero-title::after {
+    display: none;
+}
+
+/* Readable subtitle styles */
+.about-hero .hero-subtitle {
+  color: #e0e0e0;
+  opacity: .5;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* 2. "Our Story" Timeline
+---------------------------------------------------------- */
+.our-story-section {
+  background-color: #12181f;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 50px auto 0;
+  padding: 20px 0;
+}
+
+/* The main vertical line of the timeline */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: rgba(0, 230, 118, 0.15);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+}
+
+/* The glowing dot on the timeline */
+.timeline-dot {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #12181f;
+  border: 3px solid #00e676;
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(0, 230, 118, 0.5);
+}
+
+/* Position items left and right */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+/* Position dots correctly for left and right items */
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -9px;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -9px;
+}
+
+.timeline-content {
+  padding: 20px 30px;
+  background: rgba(31, 41, 55, 0.4);
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-year {
+  font-size: 1.5rem;
+  color: #00e676;
+  margin: 0 0 10px 0;
+}
+
+/* 3. "Why Us" Glassmorphism Cards
+---------------------------------------------------------- */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.why-us-item {
+  background: rgba(31, 41, 55, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.why-us-item:hover {
+  transform: translateY(-10px);
+  background: rgba(31, 41, 55, 0.5);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.why-us-icon {
+  margin-bottom: 20px;
+  color: #00e676;
+}
+
+.why-us-item h4 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.why-us-item p {
+  color: #c0c5ce;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 4. Enhanced Team Section
+---------------------------------------------------------- */
+.team-section {
+  background-color: #12181f;
+}
+
+.team-member {
+  background: #1f2937;
+  border-radius: 12px;
+  text-align: center;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.member-image-wrapper {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 4px solid #00e676;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 230, 118, 0.2);
+}
+
+.member-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-name {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.member-title {
+  font-size: 0.9rem;
+  color: #00e676;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 5px 0 15px 0;
+}
+
+.member-social {
+  margin-top: 15px;
+}
+
+.member-social a {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.member-social a:hover {
+  color: #00e676;
+  transform: scale(1.2);
+}
+
+
+/* Responsive Adjustments for Timeline
+---------------------------------------------------------- */
+@media (max-width: 767px) {
+  .about-hero h1.about-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .timeline::after {
+    left: 20px; /* Move line to the left */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 55px;
+    padding-right: 15px;
+  }
+  
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    text-align: left; /* Align all text left */
+  }
+  
+  .timeline-dot {
+    left: 11px; /* Align all dots to the line */
+  }
+}
