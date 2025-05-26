@@ -2279,12 +2279,19 @@ address {
 }
 
 
+/* .faq-category {
+  margin-bottom: 40px;
+} */
 .faq-category {
   margin-bottom: 40px;
+  max-width: 850px; /* Example: Adjust this value to your liking */
+  margin-left: auto;   /* Centers the block */
+  margin-right: auto;  /* Centers the block */
 }
 .faq-category:last-of-type {
     margin-bottom: 0;
 }
+
 
 .faq-category-title {
   font-size: 1.8em;
