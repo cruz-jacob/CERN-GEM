@@ -348,6 +348,10 @@ nav a[aria-current="page"]::after {
   overflow: hidden;
 }
 
+footer {
+  padding-top: 30px;
+}
+
 footer::before {
   content: '';
   position: absolute;
@@ -363,7 +367,9 @@ footer::before {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 40px;
+  padding-top: 30px;
   padding-bottom: 40px;
+  align-items: start;
 }
 
 .footer-about {
@@ -375,6 +381,7 @@ footer::before {
   align-items: center;
   gap: 15px;
   margin-bottom: 15px;
+  padding-top: 0px;
 }
 
 .footer-logo {
@@ -416,6 +423,8 @@ address {
   color: #ffffff;
   position: relative;
   padding-bottom: 8px;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .footer-col h4::after {
