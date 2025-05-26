@@ -17,8 +17,8 @@ Last Updated: May 25, 2025
 - Inner Page & Form Styles
 - Footer Styles
 - Responsive Media Queries
-- Support Page Specific Styles 
-- About Page Specific Styles 
+- Support Page Specific Styles
+- About Page Specific Styles
 ==================================================== */
 
 /* ======================= Global Reset & Base Styles ======================= */
@@ -527,9 +527,9 @@ main {
   transform: scale(1.02);
 }
 
-.cta-section { 
+.cta-section {
   background: linear-gradient(135deg, #1f2937, #12181f);
-  padding: 50px 0; 
+  padding: 50px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -546,8 +546,59 @@ main {
   opacity: 0.03;
   background-image: radial-gradient(circle, rgba(0, 230, 118, 0.1) 2px, transparent 2px);
   background-size: 20px 20px;
+  z-index: 1; /* Ensure dots are behind the content box */
 }
 
+/* Styles for the new CTA Content Box */
+.cta-content-box {
+  background: rgba(31, 41, 55, 0.5); /* Semi-transparent background */
+  border: 1px solid rgba(0, 230, 118, 0.2); /* Subtle green border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 40px 30px; /* Internal spacing */
+  max-width: 750px; /* Constrain width for better focus */
+  margin: 0 auto; /* Center the box */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Drop shadow for depth */
+  backdrop-filter: blur(5px); /* Frosted glass effect on the background */
+  -webkit-backdrop-filter: blur(5px); /* For Safari */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+  position: relative; /* Needed for z-index to work */
+  z-index: 2; /* Ensure it's above the parent's ::before pseudo-element */
+}
+
+.cta-content-box:hover {
+  transform: translateY(-8px); /* Lifts the box on hover */
+  box-shadow: 0 15px 40px rgba(0, 230, 118, 0.15); /* Green glow effect on hover */
+  border-color: rgba(0, 230, 118, 0.4);
+}
+
+.cta-content-box h3 {
+  font-size: 2.2rem; /* Slightly larger font for impact */
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.cta-content-box p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.cta-content-box .cta-button.secondary {
+  margin-top: 10px; /* Add some space above the button */
+}
+
+/* Responsive adjustment for the new box */
+@media (max-width: 767px) {
+  .cta-content-box {
+    padding: 30px 20px;
+  }
+  .cta-content-box h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Original CTA Section text styles - these might need to be removed or adjusted if they conflict with .cta-content-box styles */
+/*
 main .cta-section h3 {
   font-size: 2.2rem;
   margin-bottom: 20px;
@@ -564,6 +615,8 @@ main .cta-section p {
   margin-right: auto;
   line-height: 1.6;
 }
+*/
+
 
 /* ======================= Inner Page & Form Styles ======================= */
 
@@ -1431,20 +1484,20 @@ footer::before {
 }
 
 .footer-about {
-  text-align: center; 
-  padding-right: 0; 
+  text-align: center;
+  padding-right: 0;
 }
 
 .footer-logo-link {
-  display: inline-flex; 
-  align-items: center; 
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  gap: 10px; 
-  justify-content: center; 
+  gap: 10px;
+  justify-content: center;
 }
 
 .footer-brand {
-  display: flex; 
+  display: flex;
   align-items: center;
   margin-bottom: 15px;
   gap: 15px;
@@ -1473,11 +1526,11 @@ footer::before {
 .footer-tagline::before {
   content: '';
   position: absolute;
-  left: 50%; 
-  transform: translateX(-50%); 
-  bottom: -10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
   height: 2px;
-  width: 50px; 
+  width: 50px;
   background: linear-gradient(to right, #00e676, transparent);
   border-radius: 2px;
   opacity: 0.5;
@@ -1488,7 +1541,7 @@ address {
   font-style: normal;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9em;
-  margin-top: 25px; 
+  margin-top: 25px;
   line-height: 1.6;
 }
 
@@ -1656,7 +1709,7 @@ address {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -1761,10 +1814,12 @@ address {
   .cta-section {
     padding: 55px 0;
   }
+  /*
   main .cta-section h3 {
     font-size: 2rem;
     margin-bottom: 18px;
   }
+  */
   .cta-button {
     padding: 15px 32px;
   }
@@ -1806,27 +1861,27 @@ address {
   .footer-main {
     grid-template-columns: 1fr;
     gap: 40px;
-    text-align: center; 
+    text-align: center;
     padding: 0 25px 50px;
   }
   .footer-about {
-    padding-right: 0; 
+    padding-right: 0;
     margin-bottom: 35px;
-    text-align: center; 
+    text-align: center;
   }
-  .footer-logo-link { 
-    display: inline-flex; 
-    justify-content: center; 
-    padding-left: 0; 
+  .footer-logo-link {
+    display: inline-flex;
+    justify-content: center;
+    padding-left: 0;
   }
-   .footer-brand { 
+   .footer-brand {
     justify-content: center;
   }
   .footer-tagline::before {
-    display: none; 
+    display: none;
   }
   .footer-tagline {
-    padding-left: 0; 
+    padding-left: 0;
   }
   address {
     margin-top: 12px;
@@ -1834,7 +1889,7 @@ address {
     font-size: 0.85em;
     opacity: 0.8;
   }
- 
+
   .footer-site-name {
     font-size: 1.1em;
   }
@@ -1850,7 +1905,7 @@ address {
     width: auto;
     text-align: center;
   }
- 
+
   .footer-links {
     grid-template-columns: 1fr 1fr;
     width: 100%;
@@ -1865,7 +1920,7 @@ address {
     transform: translateX(-50%);
   }
   .footer-social {
-    grid-column: 1; 
+    grid-column: 1;
     margin-top: 20px;
   }
   .social-icons {
@@ -1924,14 +1979,17 @@ address {
   .protected-games-section, .cta-section {
     padding: 40px 0 50px;
   }
+  /*
   main .cta-section h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
   }
+
   main .cta-section p {
     font-size: 1rem;
     margin-bottom: 30px;
   }
+  */
   .cta-button {
     padding: 14px 28px;
     font-size: 1em;
@@ -1990,7 +2048,7 @@ address {
     font-size: 0.9rem;
   }
   /* --- Mobile Navigation ("Hamburger Menu") --- */  header nav {
-    display: block; 
+    display: block;
     position: fixed;
     width: 85%;
     right: 0;
@@ -2003,18 +2061,18 @@ address {
     z-index: 1001;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateX(100%); 
+    transform: translateX(100%);
     overflow-y: auto;
-    visibility: visible; 
-    padding-bottom: 50px; 
+    visibility: visible;
+    padding-bottom: 50px;
   }
   .navToggler:checked ~ nav {
-    transform: translateX(0); 
+    transform: translateX(0);
   }
   header nav ul {
     flex-direction: column;
     width: 100%;
-    padding: 80px 0 30px 0; 
+    padding: 80px 0 30px 0;
     margin: 0;
     align-items: center;
     gap: 12px;
@@ -2038,11 +2096,11 @@ address {
   header nav a[aria-current="page"] {
     background-color: rgba(0, 230, 118, 0.15);
     color: #00e676;
-    transform: none; 
+    transform: none;
   }
   .navTogglerMenu {
     display: block;
-    z-index: 1002; 
+    z-index: 1002;
   }
   .navTogglerMenu svg {
     stroke-width: 1.75px;
@@ -2051,19 +2109,19 @@ address {
   .navTogglerMenu:hover svg {
     stroke: #00e676;
   }
- 
+
   .menuOpen, .menuClose {
     display: block;
     transition: all 0.3s ease;
   }
   .menuClose {
-    display: none; 
+    display: none;
   }
-  .navToggler:checked ~ .navTogglerMenu .menuOpen { 
-    display: none; 
+  .navToggler:checked ~ .navTogglerMenu .menuOpen {
+    display: none;
   }
-  .navToggler:checked ~ .navTogglerMenu .menuClose { 
-    display: block; 
+  .navToggler:checked ~ .navTogglerMenu .menuClose {
+    display: block;
   }  .menu-overlay {
     position: fixed;
     top: 0;
@@ -2077,12 +2135,12 @@ address {
     transition: opacity 0.3s ease, visibility 0s 0.3s linear;
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-    pointer-events: none; 
+    pointer-events: none;
   }.navToggler:checked ~ .menu-overlay {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
-    pointer-events: auto; 
+    pointer-events: auto;
   }
   .navTogglerMenu .menuClose { display: none; }
   .navToggler:checked ~ .navTogglerMenu .menuOpen { display: none; }
@@ -2142,14 +2200,14 @@ address {
 /* ======================= Support Page Specific Styles ======================= */
 .support-hero {
   position: relative;
-  background: url('../images/support-hero-bg.jpg'); 
+  background: url('../images/support-hero-bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  padding: 60px 0; 
+  padding: 60px 0;
   text-align: center;
   overflow: hidden;
-  isolation: isolate; 
+  isolation: isolate;
 }
 
 .support-hero::before {
@@ -2164,7 +2222,7 @@ address {
     rgba(18, 24, 31, 0.7),
     rgba(31, 41, 55, 0.8)
   );
-  mix-blend-mode: overlay; 
+  mix-blend-mode: overlay;
   pointer-events: none;
 }
 
@@ -2180,11 +2238,12 @@ address {
     rgba(0, 230, 118, 0.2),
     transparent 70%
   );
-  animation: pulse 6s infinite alternate; 
+  animation: pulse 6s infinite alternate;
   pointer-events: none;
 }
 
-@keyframes pulse { 
+/* Re-defining pulse keyframes locally for support hero as it might have been removed or changed globally */
+@keyframes pulse {
   0% {
     transform: scale(1);
     opacity: 0.8;
@@ -2206,36 +2265,36 @@ address {
 }
 
 .faq-section {
-  padding: 60px 0; 
+  padding: 60px 0;
 }
 
-.faq-section .faq-main-heading { 
+.faq-section .faq-main-heading {
   font-size: 2.2em;
   margin-bottom: 40px;
   color: #ffffff;
   text-align: center;
 }
-.faq-section .faq-main-heading::after { 
+.faq-section .faq-main-heading::after {
     display: none;
 }
 
 
 .faq-category {
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
 }
 .faq-category:last-of-type {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .faq-category-title {
-  font-size: 1.8em; 
-  color: #00e676; 
-  margin-bottom: 25px; 
-  padding-bottom: 15px; 
-  border-bottom: 1px solid rgba(0, 230, 118, 0.3); 
-  text-align: left; 
+  font-size: 1.8em;
+  color: #00e676;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.3);
+  text-align: left;
 }
-.faq-category-title::after { 
+.faq-category-title::after {
     display: none;
 }
 
@@ -2260,7 +2319,7 @@ address {
   font-weight: 500;
   list-style: none;
   color: #ffffff;
-  font-size: 1.1rem; 
+  font-size: 1.1rem;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -2289,65 +2348,65 @@ address {
   line-height: 1.6;
 }
 
-.support-resources-wrapper .help-resources-heading { 
-    margin-bottom: 40px; 
+.support-resources-wrapper .help-resources-heading {
+    margin-bottom: 40px;
 }
-.support-resources-wrapper .help-resources-heading::after { 
+.support-resources-wrapper .help-resources-heading::after {
     /* Keeps the default underline from .section-heading */
 }
 
 .support-resources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
     .support-resources-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 
-.help-resource-item { 
-  background: rgba(31, 41, 55, 0.5); 
-  padding: 35px; 
-  border-radius: 10px; 
+.help-resource-item {
+  background: rgba(31, 41, 55, 0.5);
+  padding: 35px;
+  border-radius: 10px;
   text-align: center;
-  border: 1px solid rgba(0, 230, 118, 0.25); 
+  border: 1px solid rgba(0, 230, 118, 0.25);
   transition: all 0.3s ease;
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .help-resource-item:hover {
-  border-color: #00e676; 
+  border-color: #00e676;
   background: rgba(31, 41, 55, 0.7);
-  transform: translateY(-5px) scale(1.02); 
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-.help-resource-item h3 { 
+.help-resource-item h3 {
   color: #ffffff;
-  font-size: 1.7em; 
+  font-size: 1.7em;
   margin-bottom: 15px;
 }
-.help-resource-item h3::after { 
+.help-resource-item h3::after {
     display: none;
 }
 
 
 .help-resource-item p {
-  color: #c0c5ce; 
-  margin-bottom: 30px; 
-  line-height: 1.7; 
-  flex-grow: 1; 
+  color: #c0c5ce;
+  margin-bottom: 30px;
+  line-height: 1.7;
+  flex-grow: 1;
 }
 
-.help-resource-item .cta-button { 
-  margin-top: auto; 
-  padding: 14px 30px; 
+.help-resource-item .cta-button {
+  margin-top: auto;
+  padding: 14px 30px;
   font-size: 1em;
   width: auto; /* Allow buttons to size to content or be set by general .cta-button */
   min-width: 180px; /* Ensure a decent minimum width */
@@ -2358,9 +2417,9 @@ address {
 
 
 .protected-games-section .section-heading {
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
-.protected-games-section .section-heading::after { 
+.protected-games-section .section-heading::after {
     display: none;
 }
 
@@ -2375,7 +2434,7 @@ address {
   font-size: 2.8rem;
   margin-bottom: 30px;
 }
-.purpose-section .section-heading::after { 
+.purpose-section .section-heading::after {
     display: none;
 }
 
@@ -2391,28 +2450,28 @@ address {
 .mission-vision-container {
   display: flex;
   gap: 40px;
-  text-align: left; 
+  text-align: left;
 }
 
 .mission-vision-item {
-  flex: 1; 
+  flex: 1;
   background: rgba(18, 24, 31, 0.6);
   padding: 30px;
   border-radius: 8px;
   border-left: 3px solid rgba(0, 230, 118, 0.4);
 }
 
-.mission-vision-item h3 { 
+.mission-vision-item h3 {
   /* Uses .content-section h3 styles */
 }
-.mission-vision-item h3::after { 
+.mission-vision-item h3::after {
     display: none;
 }
 
 
-.why-us-section { 
-  border-bottom: 1px solid rgba(0, 230, 118, 0.2); 
-  padding-bottom: 60px; 
+.why-us-section {
+  border-bottom: 1px solid rgba(0, 230, 118, 0.2);
+  padding-bottom: 60px;
   margin-bottom: 20px;
 }
 
@@ -2430,7 +2489,7 @@ address {
   transform: translateX(-50%);
 }
 
-.why-us-section .section-heading::after { 
+.why-us-section .section-heading::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -2473,11 +2532,11 @@ address {
 }
 
 .team-section {
-  padding: 30px 0 40px; 
-  background-color: #12181f; 
+  padding: 30px 0 40px;
+  background-color: #12181f;
 }
 
-.team-section .section-heading { 
+.team-section .section-heading {
   /* Uses general .section-heading */
 }
 
@@ -2583,7 +2642,7 @@ address {
   margin-bottom: 20px;
   line-height: 1.3;
 }
-.modern-cta .cta-heading::after { 
+.modern-cta .cta-heading::after {
     display: none;
 }
 
@@ -2604,57 +2663,57 @@ address {
 }
 
 section.modern-cta .cta-buttons a.cta-button {
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: center; 
-  padding: 16px 20px; 
-  font-size: 1.05em; 
-  font-family: 'Manrope', sans-serif; 
-  font-weight: 700; 
-  border-radius: 5px; 
-  text-decoration: none; 
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; 
-  will-change: transform; 
-  text-transform: uppercase; 
-  letter-spacing: 0.5px; 
-  width: 240px; 
-  min-height: 50px; 
-  box-sizing: border-box; 
-  line-height: 1.2; 
-  white-space: nowrap; 
-  flex-grow: 0; 
-  flex-shrink: 0; 
-  overflow: hidden; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  font-size: 1.05em;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 240px;
+  min-height: 50px;
+  box-sizing: border-box;
+  line-height: 1.2;
+  white-space: nowrap;
+  flex-grow: 0;
+  flex-shrink: 0;
+  overflow: hidden;
   margin: 0; /* Reset all margins */
 }
 
 section.modern-cta .cta-buttons a.cta-button.primary {
-  background-color: #00e676; 
-  color: #12181f; 
-  border: 2px solid #00e676; 
+  background-color: #00e676;
+  color: #12181f;
+  border: 2px solid #00e676;
 }
 
 section.modern-cta .cta-buttons a.cta-button.primary:hover {
-  background-color: #00b359; 
-  border-color: #00b359; 
-  transform: translateY(-3px); 
-  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2); 
-  color: white; 
+  background-color: #00b359;
+  border-color: #00b359;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.2);
+  color: white;
 }
 
 section.modern-cta .cta-buttons a.cta-button.secondary {
-  background-color: transparent; 
-  color: #ffffff; 
-  border: 2px solid #00e676; 
-  margin: 0; 
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #00e676;
+  margin: 0;
 }
 
 section.modern-cta .cta-buttons a.cta-button.secondary:hover {
-  background-color: rgba(0, 230, 118, 0.1); 
-  color: #12181f; 
-  border-color: #00e676; 
-  transform: translateY(-3px); 
-  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1); 
+  background-color: rgba(0, 230, 118, 0.1);
+  color: #12181f; /* Text color changed to dark for better contrast on light green hover */
+  border-color: #00e676;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 230, 118, 0.1);
 }
 
 @media (max-width: 767px) {
@@ -2673,10 +2732,10 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
     align-items: center;
     gap: 15px;
   }
-  section.modern-cta .cta-buttons a.cta-button { 
-    width: 100%; 
+  section.modern-cta .cta-buttons a.cta-button {
+    width: 100%;
     max-width: 300px;
-    white-space: normal; 
+    white-space: normal;
     overflow: visible;
   }
 }
@@ -2701,9 +2760,9 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
 }
 
 /* --- Responsive adjustments for Support Page --- */
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
   .support-resources-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
@@ -2711,7 +2770,7 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
   .support-resources-grid {
     grid-template-columns: 1fr;
   }
-  .faq-section { 
+  .faq-section {
     padding: 40px 20px;
   }
   .faq-section .faq-main-heading {
@@ -2728,23 +2787,23 @@ section.modern-cta .cta-buttons a.cta-button.secondary:hover {
 /* --- Footer Responsive Adjustments --- */
 @media (max-width: 992px) {
   .footer-main {
-    text-align: center; 
+    text-align: center;
   }
   .footer-about {
-    text-align: center; 
+    text-align: center;
   }
-  .footer-logo-link { 
-    display: inline-flex; 
-    justify-content: center; 
-    padding-left: 0; 
+  .footer-logo-link {
+    display: inline-flex;
+    justify-content: center;
+    padding-left: 0;
   }
-   .footer-brand { 
+   .footer-brand {
     justify-content: center;
   }
   .footer-tagline::before {
-    display: none; 
+    display: none;
   }
   .footer-tagline {
-    padding-left: 0; 
+    padding-left: 0;
   }
 }
