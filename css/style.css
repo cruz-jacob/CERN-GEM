@@ -21,6 +21,9 @@
   9.  Additional Styles & Fixes
 ==================================================== */
 
+/* =================================================
+   1. GLOBAL RESET & BASE STYLES
+==================================================== */
 html {
   scroll-behavior: smooth;
 }
@@ -81,6 +84,9 @@ main {
   grid-area: main;
 }
 
+/* =================================================
+   2. UTILITY CLASSES
+==================================================== */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -93,6 +99,9 @@ main {
   border: 0;
 }
 
+/* =================================================
+   3. KEYFRAME ANIMATIONS
+==================================================== */
 @keyframes pulseSupport {
   0% { transform: scale(1); opacity: 0.8; }
   100% { transform: scale(1.1); opacity: 1; }
@@ -143,6 +152,9 @@ main {
   to { transform: scale(1); opacity: 1; }
 }
 
+/* =================================================
+   4. HEADER & NAVIGATION
+==================================================== */
 @keyframes headerFadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -214,6 +226,7 @@ header:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 230, 118, 0.2);
 }
 
+/* --- Main Navigation --- */
 nav {
   padding-right: 1rem;
 }
@@ -303,6 +316,7 @@ nav a[aria-current="page"]::after {
   box-shadow: 0 0 10px rgba(0, 230, 118, 0.5), 0 0 5px rgba(0, 230, 118, 0.3);
 }
 
+/* --- Mobile Navigation --- */
 .navToggler {
   display: none;
 }
@@ -383,6 +397,9 @@ nav a[aria-current="page"]::after {
   display: block !important;
 }
 
+/* =================================================
+   5. FOOTER
+==================================================== */
 .footer {
   grid-area: footer;
   background: linear-gradient(to bottom, #12181f, #050a0f);
@@ -675,6 +692,11 @@ address {
   font-size: 0.8em;
 }
 
+/* =================================================
+   6. COMMON COMPONENTS & SECTIONS
+==================================================== */
+
+/* --- Buttons --- */
 .cta-button {
   display: inline-block;
   background-color: #00e676;
@@ -709,6 +731,7 @@ address {
   border-color: #00e676;
 }
 
+/* --- Headings & Content Sections --- */
 .content-section {
   padding: 60px 0;
 }
@@ -746,6 +769,7 @@ address {
   line-height: 1.7;
 }
 
+/* --- Hero Sections --- */
 .hero,
 .page-hero {
   position: relative;
@@ -782,6 +806,7 @@ address {
   pointer-events: none;
 }
 
+/* --- Call-to-Action (CTA) Sections --- */
 .cta-section {
   background: linear-gradient(135deg, #1f2937, #12181f);
   text-align: center;
@@ -835,6 +860,12 @@ address {
   margin-bottom: 30px;
 }
 
+
+/* =================================================
+   7. PAGE-SPECIFIC STYLES
+==================================================== */
+
+/* --- Homepage (index.html) --- */
 .hero h1 {
   font-size: 3.5rem;
   margin-bottom: 25px;
@@ -1116,6 +1147,7 @@ address {
   font-size: 1.05em;
 }
 
+/* --- About Page (about.html) --- */
 .about-hero {
   background: #12181f url('../images/background_hero_img.jpg') no-repeat center center;
   background-size: cover;
@@ -1392,6 +1424,7 @@ address {
   margin: 0;
 }
 
+/* --- Blog Page (blog.html) --- */
 .blog-hero h2 {
   font-size: 2.6rem;
   margin-bottom: 15px;
@@ -1802,6 +1835,7 @@ address {
   transform: translateX(3px) rotate(5deg);
 }
 
+/* --- Contact Page (contact.html) --- */
 .contact-form-section {
   background: linear-gradient(135deg, #121820 0%, #0a1018 100%);
   border-radius: 12px;
@@ -2091,6 +2125,7 @@ form input[type="checkbox"]:checked+label:after {
   box-shadow: 0 10px 20px rgba(0, 230, 118, 0.2);
 }
 
+/* --- Support Page (support.html) --- */
 .support-hero {
   background-image: url('../images/support-hero-bg.jpg');
   background-size: cover;
@@ -2286,6 +2321,9 @@ form input[type="checkbox"]:checked+label:after {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 0 25px rgba(0, 230, 118, 0.25);
 }
 
+/* =================================================
+   8. RESPONSIVE MEDIA QUERIES
+==================================================== */
 @media (max-width: 1024px) and (min-width: 768px) {
   .form-wrapper {
     padding: 35px 30px;
@@ -2667,6 +2705,9 @@ form input[type="checkbox"]:checked+label:after {
   }
 }
 
+/* =================================================
+   9. ADDITIONAL STYLES & FIXES
+==================================================== */
 .footer-logo-link {
   text-decoration: none;
   display: inline-block;
