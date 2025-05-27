@@ -1,6 +1,5 @@
 /**
  * Main function to initialize site-wide JavaScript functionality.
- * Last Updated: May 23, 2025
  */
 function main() {
   console.log("Initializing Vigilant Shield functionality");
@@ -47,9 +46,9 @@ function initializeSearch() {
 }
 
 /**
- * Handles the mobile menu toggle functionality
- * Ensures the X icon appears when menu is toggled and menu items are visible
- * Applies staggered animations to menu items for a smoother experience
+ * Handles the mobile menu toggle functionality.
+ * Ensures the X icon appears when menu is toggled.
+ * Works with CSS to apply staggered animations to menu items for a smoother experience.
  */
 function initializeMobileMenu() {
   const navToggler = document.getElementById('navToggler');
@@ -125,8 +124,8 @@ function initializeMobileMenu() {
 }
 
 /**
- * Handles navigation visibility issues when resizing from mobile to desktop view
- * Ensures the navigation menu is always visible at desktop sizes regardless of checkbox state
+ * Handles navigation visibility issues when resizing from mobile to desktop view.
+ * Ensures the navigation menu is always visible at desktop sizes regardless of checkbox state.
  */
 function initializeResponsiveNavFixes() {
   function handleNavVisibility() {

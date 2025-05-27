@@ -1,11 +1,3 @@
-/*
-=================================================
-  Vigilant Shield Anti-Cheat Website
-  Refactored & Organized Stylesheet
-  Last Updated: May 26, 2025
-=================================================
-*/
-
 /* =================================================
     TABLE OF CONTENTS
 ====================================================
@@ -26,6 +18,7 @@
       - Contact Page (contact.html)
       - Support Page (support.html)
   8.  Responsive Media Queries
+  9.  Additional Styles & Fixes
 ==================================================== */
 
 /* =================================================
@@ -229,6 +222,10 @@ header {
   text-shadow: 0 0 10px rgba(0, 230, 118, 0.3), 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 
+header:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 230, 118, 0.2);
+}
+
 /* --- Main Navigation --- */
 nav {
   padding-right: 1rem;
@@ -319,12 +316,7 @@ nav a[aria-current="page"]::after {
   box-shadow: 0 0 10px rgba(0, 230, 118, 0.5), 0 0 5px rgba(0, 230, 118, 0.3);
 }
 
-/* Add subtle hover state effect for the entire header */
-header:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 230, 118, 0.2);
-}
-
-/* --- Mobile Navigation (Hamburger Menu) --- */
+/* --- Mobile Navigation --- */
 .navToggler {
   display: none;
 }
@@ -337,22 +329,6 @@ header:hover {
   padding: 10px;
   margin-right: 5px;
   transition: transform 0.3s ease;
-}
-
-/* Fix for desktop navigation always displaying properly */
-@media (min-width: 768px) {
-  /* Always show navigation at desktop sizes regardless of checkbox state */
-  nav {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-  
-  /* Hide mobile-specific elements at desktop size */
-  .menu-overlay {
-    display: none !important;
-  }
 }
 
 .navTogglerMenu svg {
@@ -372,7 +348,6 @@ header:hover {
   stroke: #00e676;
 }
 
-/* Increase close icon size and add animation */
 .navTogglerMenu .menuClose {
   transform: scale(1.2);
 }
@@ -412,7 +387,6 @@ header:hover {
   animation: slideOut 0.3s forwards cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Updated mobile menu toggle button selectors */
 .navToggler:checked ~ .navTogglerMenu .menuOpen {
   display: none !important;
 }
@@ -421,21 +395,22 @@ header:hover {
   display: block !important;
 }
 
+/* =================================================
+   5. FOOTER
+==================================================== */
 .footer {
   grid-area: footer;
   background: linear-gradient(to bottom, #12181f, #050a0f);
   border-top: 1px solid rgba(0, 230, 118, 0.2);
-  margin-top: 60px; /* Added space before footer */
+  margin-top: 60px;
   padding-top: 60px;
   position: relative;
   overflow: hidden;
-  /* Add subtle tech pattern background */
   background-image: 
     linear-gradient(to bottom, #12181f, #050a0f),
     url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300e676' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Add divider waves before the footer */
 .footer::before {
   content: '';
   position: absolute;
@@ -715,7 +690,6 @@ address {
   font-size: 0.8em;
 }
 
-
 /* =================================================
    6. COMMON COMPONENTS & SECTIONS
 ==================================================== */
@@ -793,7 +767,7 @@ address {
   line-height: 1.7;
 }
 
-/* --- Hero Sections (Common Styles) --- */
+/* --- Hero Sections --- */
 .hero,
 .page-hero {
   position: relative;
@@ -1276,7 +1250,6 @@ address {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-  text-align: left; /* Explicitly set left alignment to override any inherited center alignment */
 }
 
 .timeline-year {
@@ -1284,14 +1257,12 @@ address {
   color: #00e676;
   margin: 0 0 10px 0;
   word-break: break-word;
-  text-align: left; /* Explicitly set left alignment */
 }
 
 .timeline-content p {
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  text-align: left; /* Explicitly set left alignment */
 }
 
 .why-us-grid {
@@ -1551,8 +1522,8 @@ address {
 
 .category-wrapper {
   width: 100%;
-  overflow-x: auto; /* For horizontal scrolling on very small screens */
-  padding-bottom: 4px; /* Space for potential scrollbar */
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .blog-categories {
@@ -1873,7 +1844,6 @@ address {
   overflow: hidden;
 }
 
-/* Add tech pattern background overlay */
 .contact-form-section::before {
   content: '';
   position: absolute;
@@ -2229,7 +2199,7 @@ form input[type="checkbox"]:checked+label:after {
   margin-bottom: 30px;
   padding-bottom: 15px;
   border-bottom: 2px solid rgba(0, 230, 118, 0.5);
-  text-shadow: 0 2px 4px rgba(0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0,  0.1);
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -2355,7 +2325,6 @@ form input[type="checkbox"]:checked+label:after {
    8. RESPONSIVE MEDIA QUERIES
 ==================================================== */
 
-/* --- Medium-Large Tablets --- */
 @media (max-width: 1024px) and (min-width: 768px) {
   .form-wrapper {
     padding: 35px 30px;
@@ -2371,7 +2340,6 @@ form input[type="checkbox"]:checked+label:after {
   }
 }
 
-/* --- Medium Devices (Tablets, etc.) --- */
 @media (max-width: 992px) {
   .hero {
     padding: 80px 0 90px;
@@ -2403,7 +2371,6 @@ form input[type="checkbox"]:checked+label:after {
     grid-template-columns: 1fr;
   }
   
-  /* Blog Filter Spacing for Tablet View */
   .blog-filter-container {
     padding: 20px;
     gap: 20px;
@@ -2483,7 +2450,6 @@ form input[type="checkbox"]:checked+label:after {
   }
 }
 
-/* --- Small Devices (Mobiles) --- */
 @media (max-width: 767px) {
   .hero {
     padding: 60px 0 70px;
@@ -2506,7 +2472,6 @@ form input[type="checkbox"]:checked+label:after {
     font-size: 2rem;
   }
   
-  /* Blog Filter Spacing for Mobile View */
   .blog-filter-container {
     padding: 16px;
     gap: 16px;
@@ -2522,7 +2487,6 @@ form input[type="checkbox"]:checked+label:after {
     min-width: 90px;
   }
   
-  /* Timeline responsive fixes */
   .timeline::after {
     left: 30px;
   }
@@ -2557,7 +2521,6 @@ form input[type="checkbox"]:checked+label:after {
     font-size: 1rem;
   }
 
-  /* --- Mobile Navigation Setup --- */
   header nav {
     display: block;
     position: fixed;
@@ -2576,7 +2539,6 @@ form input[type="checkbox"]:checked+label:after {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  /* Add subtle texture pattern */
   header nav::before {
     content: "";
     position: absolute;
@@ -2590,16 +2552,16 @@ form input[type="checkbox"]:checked+label:after {
     z-index: -1;
   }
 
-  /* Add brand logo at the top of mobile menu */
   .navToggler:checked ~ nav {
     transform: translateX(0);
-  }  header nav ul {
-    flex-direction: column;
-    padding: 20px 0 30px 0;
-    gap: 12px; /* Reduced gap between menu items */
   }
   
-  /* Remove the dots on mobile nav items */
+  header nav ul {
+    flex-direction: column;
+    padding: 20px 0 30px 0;
+    gap: 12px;
+  }
+  
   nav li:not(:last-child)::after {
     display: none;
   }
@@ -2610,7 +2572,6 @@ form input[type="checkbox"]:checked+label:after {
     opacity: 0;
   }
   
-  /* Staggered animation for menu items */
   .navToggler:checked ~ nav li:nth-child(1) {
     animation: fadeInUp 0.4s 0.1s forwards ease-out;
   }
@@ -2643,7 +2604,7 @@ form input[type="checkbox"]:checked+label:after {
     transition: all 0.3s ease;
   }
   
-  /* Left border for current page indicator */  header nav a[aria-current="page"] {
+  header nav a[aria-current="page"] {
     border-left: 4px solid #00e676;
     background: rgba(0, 230, 118, 0.15);
     padding-left: 15px;
@@ -2663,7 +2624,7 @@ form input[type="checkbox"]:checked+label:after {
   header nav a:active {
     transform: scale(0.98);
   }
-  /* Make sure the hamburger menu icon is visible */
+
   .navTogglerMenu {
     display: flex;
     align-items: center;
@@ -2679,18 +2640,17 @@ form input[type="checkbox"]:checked+label:after {
   .navTogglerMenu .menuOpen {
     display: block;
   }
-    .navTogglerMenu .menuClose {
+  
+  .navTogglerMenu .menuClose {
     display: none;
   }
   
-  /* Center align the X icon with the header */
   .navTogglerMenu svg {
     width: 24px;
     height: 24px;
     transition: transform 0.3s ease, stroke 0.3s ease;
   }
   
-  /* When menu is toggled open */
   .navToggler:checked ~ .navTogglerMenu .menuOpen {
     display: none !important;
   }
@@ -2700,7 +2660,6 @@ form input[type="checkbox"]:checked+label:after {
   }
 }
 
-/* --- Extra Small Devices --- */
 @media (max-width: 480px) {
   .features-grid {
     grid-template-columns: 1fr;
@@ -2710,6 +2669,7 @@ form input[type="checkbox"]:checked+label:after {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+  
   .footer-bottom-content {
     flex-direction: column;
     gap: 20px;
@@ -2727,7 +2687,6 @@ form input[type="checkbox"]:checked+label:after {
     padding: 15px 12px;
   }
   
-  /* Blog Filter for Small Mobile View */
   .blog-filter-container {
     padding: 15px 12px;
   }
@@ -2750,7 +2709,7 @@ form input[type="checkbox"]:checked+label:after {
 }
 
 /* =================================================
-   9. ADDITIONAL STYLES
+   9. ADDITIONAL STYLES & FIXES
 ==================================================== */
 .footer-logo-link {
   text-decoration: none;
@@ -2777,7 +2736,6 @@ form input[type="checkbox"]:checked+label:after {
   }
 }
 
-/* Mobile navigation header and branding */
 .mobile-nav-header {
   padding: 20px 1rem;
   margin-bottom: 15px;
@@ -2843,25 +2801,21 @@ form input[type="checkbox"]:checked+label:after {
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Show mobile nav header on small screens only */
 @media (max-width: 767px) {
   .mobile-nav-header {
     display: flex;
     align-items: center;
   }
   
-  /* Ensure menu items have proper vertical centering */
   .mobile-brand {
     height: 42px;
   }
   
-  /* Subtle hover effect for the mobile logo */
   .mobile-logo:hover {
     transform: scale(1.05);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 4px rgba(0, 230, 118, 0.4);
   }
   
-  /* Shield-shaped background behind menu items */
   nav ul::before {
     content: "";
     position: absolute;
@@ -2876,18 +2830,15 @@ form input[type="checkbox"]:checked+label:after {
   }
 }
 
-/* Fix for contact form section - Make overlay non-interactive */
 .contact-form-section::before {
-  pointer-events: none; /* Allow clicks to pass through to elements below */
+  pointer-events: none;
 }
 
-/* Ensure form elements are positioned above the background */
 .form-wrapper {
   position: relative;
-  z-index: 1; /* Position above the background overlay */
+  z-index: 1;
 }
 
-/* Additional fix for specific form elements if needed */
 .contact-form .form-control,
 form input[type="text"],
 form input[type="email"],
@@ -2896,7 +2847,7 @@ form select,
 form textarea,
 .form-submit-button {
   position: relative;
-  z-index: 2; /* Ensure these are above any overlays */
+  z-index: 2;
 }
 
 .team-section {
