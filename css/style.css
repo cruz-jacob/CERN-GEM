@@ -2579,7 +2579,7 @@ form input[type="checkbox"]:checked+label:after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2300e676' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2300e676' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1h-1V1z'%3E%3C/path%3E%3C/svg%3E");
     opacity: 0.4;
     pointer-events: none;
     z-index: -1;
@@ -2888,4 +2888,25 @@ form textarea,
 .form-submit-button {
   position: relative;
   z-index: 2; /* Ensure these are above any overlays */
+}
+
+.team-section {
+  position: relative;
+}
+
+.team-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, 
+    rgba(0, 230, 118, 0.02),
+    rgba(0, 230, 118, 0.2) 30%,
+    rgba(0, 230, 118, 0.35) 50%,
+    rgba(0, 230, 118, 0.2) 70%,
+    rgba(0, 230, 118, 0.02) 100%);
+  box-shadow: 0 0 6px rgba(0, 230, 118, 0.15);
+  opacity: 0.6;
 }
