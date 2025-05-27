@@ -2590,11 +2590,15 @@ form input[type="checkbox"]:checked+label:after {
   /* Add brand logo at the top of mobile menu */
   .navToggler:checked ~ nav {
     transform: translateX(0);
-  }
-  header nav ul {
+  }  header nav ul {
     flex-direction: column;
     padding: 20px 0 30px 0;
     gap: 12px; /* Reduced gap between menu items */
+  }
+  
+  /* Remove the dots on mobile nav items */
+  nav li:not(:last-child)::after {
+    display: none;
   }
 
   header nav li {
@@ -2772,7 +2776,7 @@ form input[type="checkbox"]:checked+label:after {
 
 /* Mobile navigation header and branding */
 .mobile-nav-header {
-  padding: 20px 18px;
+  padding: 20px 1rem;
   margin-bottom: 15px;
   display: none;
   border-bottom: 1px solid rgba(0, 230, 118, 0.2);
@@ -2805,11 +2809,11 @@ form input[type="checkbox"]:checked+label:after {
 .mobile-brand {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 1.25rem;
   opacity: 0;
   transform: translateY(-10px);
   height: 40px;
-  margin-left: 2px;
+  margin-left: 0;
 }
 
 .navToggler:checked ~ nav .mobile-brand {
@@ -2817,9 +2821,9 @@ form input[type="checkbox"]:checked+label:after {
 }
 
 .mobile-logo {
-  width: 38px;
+  width: 40px;
   height: auto;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2828,11 +2832,11 @@ form input[type="checkbox"]:checked+label:after {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
   color: #ffffff;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.5px;
-  padding-top: 2px;
+  padding-top: 0;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
