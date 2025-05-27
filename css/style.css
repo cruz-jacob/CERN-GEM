@@ -161,8 +161,8 @@ main {
 }
 
 header {
-  background: linear-gradient(to right, rgba(18, 24, 31, 0.97), rgba(31, 41, 55, 0.97));
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 230, 118, 0.1);
+  background: linear-gradient(to right, rgba(18, 24, 31, 0.99), rgba(31, 41, 55, 1));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 230, 118, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -170,7 +170,7 @@ header {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   animation: headerFadeIn 0.8s ease-out forwards;
   border-top: 1px solid transparent;
-  background-image: linear-gradient(to right, rgba(18, 24, 31, 0.97), rgba(31, 41, 55, 0.97)), 
+  background-image: linear-gradient(to right, rgba(18, 24, 31, 0.99), rgba(31, 41, 55, 1)), 
                     linear-gradient(to right, transparent, rgba(0, 230, 118, 0.2), transparent);
   background-origin: border-box;
   background-clip: padding-box, border-box;
