@@ -57,6 +57,8 @@ function initializeMobileMenu() {
   const nav = document.querySelector('nav');
   const menuItems = document.querySelectorAll('nav li');
   const mobileBrand = document.querySelector('.mobile-brand');
+  const mainContent = document.querySelector('main');
+  const header = document.querySelector('header');
   
   if (navToggler) {
     navToggler.addEventListener('change', function() {
@@ -70,6 +72,12 @@ function initializeMobileMenu() {
           nav.classList.add('menu-visible');
         }
         
+        // Add blur to main content
+        if (mainContent) {
+          mainContent.style.filter = 'blur(10px)';
+          mainContent.style.transition = 'filter 0.4s ease';
+        }
+        
         // Reset any existing animations
         menuItems.forEach(item => {
           item.style.opacity = '0';
@@ -81,21 +89,10 @@ function initializeMobileMenu() {
       } else {
         body.style.overflow = '';
         
-        // Add animation class
-        if (nav) {
-          nav.classList.remove('menu-visible');
-          nav.classList.add('menu-hidden');
+        // Remove blur from main content
+        if (mainContent) {
+          mainContent.style.filter = 'none';
         }
-      }
-    });
-  }
-  
-  // Close menu when clicking the overlay
-  if (menuOverlay) {
-    menuOverlay.addEventListener('click', function() {
-      if (navToggler && navToggler.checked) {
-        navToggler.checked = false;
-        body.style.overflow = '';
         
         // Add animation class
         if (nav) {
@@ -105,14 +102,38 @@ function initializeMobileMenu() {
       }
     });
   }
-  
-  // Close menu when clicking a nav link (better mobile UX)
+    // Close menu when clicking the overlay
+  if (menuOverlay) {
+    menuOverlay.addEventListener('click', function() {
+      if (navToggler && navToggler.checked) {
+        navToggler.checked = false;
+        body.style.overflow = '';
+        
+        // Remove blur from main content
+        if (mainContent) {
+          mainContent.style.filter = 'none';
+        }
+        
+        // Add animation class
+        if (nav) {
+          nav.classList.remove('menu-visible');
+          nav.classList.add('menu-hidden');
+        }
+      }
+    });
+  }
+    // Close menu when clicking a nav link (better mobile UX)
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
       if (navToggler && navToggler.checked && window.innerWidth <= 767) {
         navToggler.checked = false;
         body.style.overflow = '';
+        
+        // Remove blur from main content
+        if (mainContent) {
+          mainContent.style.filter = 'none';
+        }
         
         if (nav) {
           nav.classList.remove('menu-visible');
