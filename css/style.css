@@ -1398,15 +1398,17 @@ address {
 
 .modern-cta {
   padding: 80px 0;
-  border: 3px solid #00e676;
-  border-radius: 12px;
-  margin: 40px 20px;
-  background: linear-gradient(135deg, rgba(18, 24, 31, 0.9), rgba(31, 41, 55, 0.95));
-  box-shadow: 0 10px 30px rgba(0, 230, 118, 0.15);
+  margin: 60px 0;
+  background: #1f2937;
+  width: 100%;
 }
 
 .modern-cta .cta-content {
-  padding: 20px;
+  padding: 40px;
+  border: 3px solid #00e676;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .modern-cta .cta-accent-line {
