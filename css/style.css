@@ -1276,6 +1276,7 @@ address {
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
+  text-align: left; /* Explicitly set left alignment to override any inherited center alignment */
 }
 
 .timeline-year {
@@ -1283,12 +1284,14 @@ address {
   color: #00e676;
   margin: 0 0 10px 0;
   word-break: break-word;
+  text-align: left; /* Explicitly set left alignment */
 }
 
 .timeline-content p {
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  text-align: left; /* Explicitly set left alignment */
 }
 
 .why-us-grid {
@@ -2226,7 +2229,7 @@ form input[type="checkbox"]:checked+label:after {
   margin-bottom: 30px;
   padding-bottom: 15px;
   border-bottom: 2px solid rgba(0, 230, 118, 0.5);
-  text-shadow: 0 2px 4px rgba(0, 0, 0,  0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0.1);
   font-weight: 600;
   letter-spacing: 0.5px;
 }
